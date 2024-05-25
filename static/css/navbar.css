@@ -18,23 +18,11 @@
   font-family: 'Milford-nLjO';
   src: url('/static/font/Milford-nLjO.ttf') format('TrueType');
 }
-
-
-/*                                                                BASE
-**********************************************************************/
-html {
-  max-width: 1200px!important;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-
 /*                                                              NAVBAR
 **********************************************************************/
 .navbar {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-family:'Milford-nLjO';
+  font-family: 'Milford-nLjO';
+  background-color:#93c7d8!important;
 }
 /*                                                  DROPDOWN
 ============================================================*/
@@ -44,136 +32,169 @@ html {
   display: flex;
   align-items: center;
 }
-/*               Space between badge
+/*          Space between text/badge
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .dropdown-item .badge {
   margin-left: 5px;
 }
 /*                                               SEARCH-FIELD
 =============================================================*/
-/*                            Center
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
-.mx-auto .search .input-group {
-  width: 100%;
-}
+
 /*                Color, Shape, Font
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .search-input {
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 5px;
-  border: 1px solid #FF70C0;
+  height: 40px;
+  border-radius: 20px;
   font-size: 1rem;
+  color:#000;
+  background-color:#FFF;
+  border: 1px solid #F2AECE;
+  
 }
 /*                  Placeholder Font
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .search-input::placeholder {
-  color: #000;
   font-family: "Milford-nLjO";
+  color:#000;
+  
 }
-
-/*                                RESPONSIVE SETTINGS
-----------------------------------------------------*/
-/*                     Large Screens
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-@media (min-width: 992px) {
-  .search {
-    width: ;
-  }
-}
-/*                     Small Screens
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-@media (max-width: 576px) {
-  .search {
-    width: 100%;
-  }
-}
-
-
 
 /*                                                    BUTTONS
 =============================================================*/
+/*                                       BRAND BUTTON
+----------------------------------------------------*/
+.brand-btn {
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 7px;
+  padding-left: 5px;
+  border-radius: 10px;
+  margin-right: 10px;
+  color:#FF70C0;
+  background-color:#FFF;
+  border-color:#F2AECE;
+  text-shadow: 2px 1px 1px #F2AECE;
+
+}
+
+.brand-btn:hover {
+  color:#FFF;
+  background-color:#F2AECE;
+  border-color:#FF70C0;
+  text-shadow:2px 1px 1px #FF70C0;
+}
 /*                                     SEARCH BUTTON
 ----------------------------------------------------*/
 /*                        Icon color
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .search-btn .fa-search {
-  color: #FF70C0;
+  color:#FF70C0;
+}
+/*                   Icon hover color
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
+.search-btn:hover .fa-search {
+  color:#FFF;
 }
 /*                  Background color
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .search-btn {
-  background-color: white;
   border-radius: 5px;
-  border: 1px solid #FF70C0;
+  background-color:#FFF;
+  border: 1px solid #F2AECE;
+}
+/*             Background hover color
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+.search-btn:hover {
+  background-color:#F2AECE;
+  border-color:#FF70C0;
+}
+
+/*                                       POST BUTTON
+----------------------------------------------------*/
+/*                       Button color
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+.post-btn {
+  display:          flex; /* Use flexbox */
+  justify-content:  center; /* Center horizontally */
+  align-items:      center; /* Center vertically */
+  width:            65px;
+  height:           60px;
+  font-size:        20px;
+  font-weight:      bold;
+  border-radius:    50%;
+  margin-top:       5px;
+  color:            #FF70C0;
+  background-color: #FFF;
+  border-color:     #F2AECE;
+  text-shadow:        2px 1px 1px #F2AECE;
 }
 /*                       Hover color
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-.search-btn:hover {
-  background-color: #bed4f3;
-  border-color: #FF70C0;
+.post-btn:hover {
+  color:            #FFF;
+  background-color: #F2AECE;
+  border-color:     #FF70C0;
+  text-shadow:        2px 1px 1px #FF70C0;
 }
+
 /*                            PROFILE PICTURE BUTTON
 ----------------------------------------------------*/
 /*                Position, Settings
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .profile-button {
-  margin-bottom: -2px;
-  display: inline-block;
-  border: none;
-  padding: 0px;
-  background: none;
-  cursor: pointer;
+  margin-bottom:  -2px;
+  display:        inline-block;
+  padding:        0px;
+  background:     none;
+  cursor:         pointer;
 }
 /*                Size, Shape, Hover
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .profile-picture {
-  width: 51px;
-  height: 51px;
-  border-radius: 50%;
-  display: block;
-  transition: box-shadow 0.2s, border 0.2s;
+  width:          70px;
+  height:         70px;
+  border-radius:  50%;
+  display:        block;
+  transition:     box-shadow 0.1s, border 0.1s;
 }
 /*                       Hover color
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .profile-button:hover .profile-picture {
-  box-shadow: 0 0 0 2px #a9c8f3;
-  border: 1px solid #a9c8f3;
+  border: 3px solid #FF70C0;
 }
 /*                                    FRIENDS BUTTON
 ----------------------------------------------------*/
 /*                          Position
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .friends-button {
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 /*                            BRAND + TOGGLER BUTTON
 ----------------------------------------------------*/
 /*                    Vertical align
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-.navbar-brand,
+.navbar-btn,
 .navbar-toggler {
-  align-items: center;
-  display: flex;
+  align-items:  center;
+  display:      flex;
 }
-/*                                       BRAND BUTTON
-----------------------------------------------------*/
-/*                              Size
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-.navbar-brand img {
-  height: 34px;
-  width: 135px;
-}
+
+
 /*                                    TOGGLER BUTTON
 ----------------------------------------------------*/
  
 /*           Size / Position / Shape 
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .navbar-toggler {
-  padding: 0.1rem 0.5rem;
-  font-size: 1.05rem;
-  border-radius: 0px;
+  padding:       10px;
+  font-size:     1.05rem;
+  border-radius: 10px;
+  margin-top:    10px;
+  margin-bottom: 10px;
 }
 /*                     Color - lines
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
@@ -183,14 +204,25 @@ html {
 /*           Color - outline / Shape
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .navbar-toggler:focus {
-  outline: 2px solid #FF70C0;
-  border-radius: 0px;
+  border-radius:10px;
+  outline: 1px solid #FF70C0;
+  
 }
 /*                                           WELCOME MESSAGE
 ============================================================*/
 .welcome-message {
-  color: #000000;
-  font-size: 20px;
+  font-size:20px;
   font-family: "Milford-nLjO";
+  color:#000000;
 }
+/*                                           Links in row - Small Screens
+============================================================*/
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: row !important;
+  }
 
+  .navbar-nav .nav-item {
+    margin-right: 10px; /* Optional: Add some spacing between navbar items */
+  }
+}

@@ -1,0 +1,140 @@
+/*             CATEGORY          
+***********************/
+
+/*          SUBCATEGORY
+=======================*/
+
+/*      SUB SUBCATEGORY 
+-----------------------*/
+
+/*          Preferences
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
+
+
+/*                                                                BASE
+**********************************************************************/
+html {
+    max-width: 1200px!important;
+    margin: 0 auto;
+}
+
+
+
+@font-face {
+    font-family: 'Milford-nLjO';
+    src: url('/static/font/Milford-nLjO.ttf') format('TrueType');
+  }
+  
+
+
+
+/*                                                           HOME.HTML
+**********************************************************************/
+.post-background-3 {
+    padding-top: 20px;
+    background-color: #93c7d8;
+    margin: 0 auto;
+    font-family: 'Milford-nLjO';
+}
+
+.post-background-2 {
+    padding-top: 20px;
+    background-color: #93c7d8;
+    margin: 0 auto;
+    font-family: 'Milford-nLjO';
+}
+
+.post-background-1 {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #c1d6de;
+    border-radius: 20px;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #FF70C0;
+    text-shadow: 3px 1px 1px #f2aece;
+}
+
+/* Container for the post wall */
+.post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    outline: 5px solid #f2aece;
+    border-radius: 20px;
+}
+
+/* Style for each post */
+.post {
+    margin-bottom: 20px; /* Add space between posts */
+}
+
+/* Title of each post */
+.post-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Image displayed in each post */
+.post-img {
+    max-width: 100%;
+    border-radius: 20px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Content of each post */
+.post-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Username and timestamp */
+.post-meta {
+    font-style: italic;
+    color: #999;
+}
+
+/* Message displayed when there are no posts */
+.no-posts-message {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+/*                                        RESPONSIVE SETTINGS
+============================================================*/
+/*                                            NAVBAR
+----------------------------------------------------*/
+/*                     Large Screens
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+@media (min-width: 992px) {
+    .search {
+      width: ;
+    }
+  }
+  /*                     Small Screens
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+  @media (max-width: 576px) {
+    .search {
+      width: 100%;
+    }
+  }
+  
