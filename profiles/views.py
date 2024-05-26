@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegistrationForm, UserForm, UserProfileForm
-from .models import Profile, UserProfile
+from django.shortcuts import render, redirect
+from .forms import RegistrationForm, UserForm
+from .models import Profile
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
@@ -19,18 +19,18 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
+            user_name       = email.split("@")[0]
+            password        = form.cleaned_data['password']
             first_name      = form.cleaned_data['first_name']
             last_name       = form.cleaned_data['last_name']
             phone_number    = form.cleaned_data['phone_number']
             email           = form.cleaned_data['email']
-            password        = form.cleaned_data['password']
-            username        = email.split("@")[0]
             user            = Profile.objects.create_user(
+                user_name   = user_name,
+                password    = password,
+                email       = email,
                 first_name  = first_name,
                 last_name   = last_name,
-                email       = email,
-                username    = username,
-                password    = password
                 )
             user.phone_number = phone_number
             user.save()
@@ -85,7 +85,6 @@ def login(request):
 #___________________________________________________________logout
 @login_required(login_url = 'login')
 def logout(request):
-
     auth.logout(request)
     messages.success(request, 'Loggout Successful!')
     return redirect('login')
@@ -114,13 +113,13 @@ def activate(request, uidb64, token):
 @login_required(login_url='login')
 def dashboard(request):
     try:
-        userprofile = UserProfile.objects.get(user_id=request.user.id)
-    except UserProfile.DoesNotExist:
+        Profile = Profile.objects.get(user_id=request.user.id)
+    except Profile.DoesNotExist:
         # If UserProfile doesn't exist, create one
-        userprofile = UserProfile.objects.create(user=request.user.id)
+        Profile = Profile.objects.create(user=request.user.id)
     
     context = {
-        'UserProfile': userprofile,
+        'Profile': Profile,
     }
     return render(request, 'profiles/dashboard.html', context)
 
@@ -150,28 +149,19 @@ def reset_password(request):
 #___________________________________________________________edit_profile
 @login_required(login_url='login')
 def edit_profile(request):
-
-    userprofile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
-        if user_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid():
             user_form.save()
-            profile_form.save()
-
             messages.success(request, 'Your Profile has been updated!')
             return redirect('edit_profile')
     else:
         user_form = UserForm(instance=request.user)
-        profile_form = UserProfileForm(instance=userprofile)
     
     context = {
         'user_form': user_form,
-        'profile_form': profile_form,
-        'userprofile': userprofile,
     }
     return render(request, 'profiles/edit_profile.html', context)
-
 
 #___________________________________________________________change_password
 @login_required(login_url='login')

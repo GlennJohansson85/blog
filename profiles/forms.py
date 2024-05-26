@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, UserProfile
+from .models import Profile
 
 #___________________________________________________________  RegistrationForm
 class RegistrationForm(forms.ModelForm):
@@ -15,7 +15,7 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model  = Profile
-        fields = ['first_name', 'last_name', 'email', 'password', 'phone_number']
+        fields = ['user_name', 'first_name', 'last_name', 'email', 'password', 'phone_number', 'profile_picture']
 
     def clean(self):
 
@@ -42,25 +42,13 @@ class RegistrationForm(forms.ModelForm):
 #___________________________________________________________  UserForm
 class UserForm(forms.ModelForm):
 
+    profile_picture = forms.ImageField(required=False, error_messages={'Invalid':("Image files only.")}, widget=forms.FileInput)
+
     class Meta:
         model = Profile
-        fields = ('first_name', 'last_name', 'phone_number')
+        fields = ['user_name', 'first_name', 'last_name', 'email', 'password', 'phone_number', 'profile_picture']
 
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
-        for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'form-control'
-
-
-#___________________________________________________________  EditProfileForm
-class UserProfileForm(forms.ModelForm):
-
-    profile_picture = forms.ImageField(required=False, error_messages={'Invalid':("Image files only.")}, widget=forms.FileInput)
-    class Meta:
-        model = UserProfile
-        fields = ('address', 'city', 'country', 'profile_picture')
-
-    def __init__(self, *args, **kwargs):
-        super(UserProfileForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'

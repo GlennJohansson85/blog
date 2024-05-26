@@ -7,11 +7,14 @@ from .models import Post
 
 
 def home(request):
+    # Order posts by 'created_at' in descending order
     posts = Post.objects.filter(is_published=True).order_by('-created_at')
     context = {
-        'posts': posts,
+        "posts": posts,
+
     }
-    return render(request, 'home.html', context)
+
+    return render(request, "home.html", context)
 
 
 @login_required
