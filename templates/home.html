@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-  <div class="post-background-3">
-    <div class="post-background-1">
+  <div class="background-blue">
+    <div class="background-light-blue">
       <h1>Post Wall</h1>
       <div class="post-container">
         {% if posts %}
@@ -14,7 +14,7 @@
                 <img class="post-img" src="{{ post.img.url }}" alt="{{ post.title }}">
               {% endif %}
               <p class="post-content">{{ post.short_content }}</p>
-              <p class="post-meta">By: {{ post.user.user.username }} | Posted on: {{ post.created_at }}</p>
+              <p class="post-meta">By: {{ post.user.username}} | Posted on: {{ post.created_at }}</p>
             </div>
           {% endfor %}
         {% else %}

@@ -10,115 +10,85 @@
 /*          Preferences
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 
-/*                                                                FONT
-**********************************************************************/
-/*                   Welcome-message
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-@font-face {
-  font-family: 'Milford-nLjO';
-  src: url('/static/font/Milford-nLjO.ttf') format('TrueType');
-}
 /*                                                              NAVBAR
-**********************************************************************/
+**********************************************************************/ 
+/*                                                      COLOR
+=============================================================*/
 .navbar {
-  font-family: 'Milford-nLjO';
   background-color:#93c7d8!important;
 }
-/*                                                  DROPDOWN
-============================================================*/
-/*      Items flexible, center-align
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-.dropdown-item { 
-  display: flex;
-  align-items: center;
-}
-/*          Space between text/badge
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-.dropdown-item .badge {
-  margin-left: 5px;
-}
+
 /*                                               SEARCH-FIELD
 =============================================================*/
-
-/*                Color, Shape, Font
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .search-input {
-  height: 40px;
-  border-radius: 20px;
-  font-size: 1rem;
-  color:#000;
-  background-color:#FFF;
-  border: 1px solid #F2AECE;
-  
+  height:             40px;
+  border-radius:      20px;
+  font-size:          1rem;
+  color:            #484747;
+  background-color: #FFF;
+  border:             1px solid #F2AECE;
 }
-/*                  Placeholder Font
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+
 .search-input::placeholder {
-  font-family: "Milford-nLjO";
-  color:#000;
-  
+  color:            #484747;
 }
 
 /*                                                    BUTTONS
 =============================================================*/
-/*                                       BRAND BUTTON
-----------------------------------------------------*/
 .brand-btn {
-  font-size: 25px;
-  font-weight: bold;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 7px;
-  padding-left: 5px;
-  border-radius: 10px;
-  margin-right: 10px;
-  color:#FF70C0;
-  background-color:#FFF;
-  border-color:#F2AECE;
-  text-shadow: 2px 1px 1px #F2AECE;
+  font-size:          25px;
+  font-weight:        bold;
+  padding-top:        5px;
+  padding-bottom:     5px;
+  padding-right:      7px;
+  padding-left:       5px;
+  border-radius:      10px;
+  margin-right:       10px;
+  color:            #FF70C0;
+  background-color: #FFF;
+  border-color:     #F2AECE;
+  text-shadow:        2px 1px 1px #F2AECE;
 
 }
 
 .brand-btn:hover {
-  color:#FFF;
-  background-color:#F2AECE;
-  border-color:#FF70C0;
-  text-shadow:2px 1px 1px #FF70C0;
+  color:            #FFF;
+  background-color: #F2AECE;
+  border-color:     #FF70C0;
+  text-shadow:        2px 1px 1px #FF70C0;
 }
 /*                                     SEARCH BUTTON
 ----------------------------------------------------*/
-/*                        Icon color
+/*                              Icon
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .search-btn .fa-search {
-  color:#FF70C0;
+  color:            #FF70C0;
 }
-/*                   Icon hover color
+/*                        Icon hover
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .search-btn:hover .fa-search {
-  color:#FFF;
+  color:            #FFF;
 }
-/*                  Background color
+/*                        Background
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .search-btn {
-  border-radius: 5px;
-  background-color:#FFF;
-  border: 1px solid #F2AECE;
+  border-radius:      5px;
+  background-color: #FFF;
+  border:             1px solid #F2AECE;
 }
-/*             Background hover color
+/*                  Background hover
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .search-btn:hover {
-  background-color:#F2AECE;
-  border-color:#FF70C0;
+  background-color: #F2AECE;
+  border-color:     #FF70C0;
 }
 
 /*                                       POST BUTTON
 ----------------------------------------------------*/
-/*                       Button color
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .post-btn {
-  display:          flex; /* Use flexbox */
-  justify-content:  center; /* Center horizontally */
-  align-items:      center; /* Center vertically */
+  display:          flex;
+  justify-content:  center;
+  align-items:      center;
   width:            65px;
   height:           60px;
   font-size:        20px;
@@ -130,8 +100,7 @@
   border-color:     #F2AECE;
   text-shadow:        2px 1px 1px #F2AECE;
 }
-/*                       Hover color
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+
 .post-btn:hover {
   color:            #FFF;
   background-color: #F2AECE;
@@ -141,8 +110,6 @@
 
 /*                            PROFILE PICTURE BUTTON
 ----------------------------------------------------*/
-/*                Position, Settings
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .profile-button {
   margin-bottom:  -2px;
   display:        inline-block;
@@ -150,8 +117,7 @@
   background:     none;
   cursor:         pointer;
 }
-/*                Size, Shape, Hover
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+
 .profile-picture {
   width:          70px;
   height:         70px;
@@ -159,10 +125,9 @@
   display:        block;
   transition:     box-shadow 0.1s, border 0.1s;
 }
-/*                       Hover color
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+
 .profile-button:hover .profile-picture {
-  border: 3px solid #FF70C0;
+  border:         3px solid #FF70C0;
 }
 /*                                    FRIENDS BUTTON
 ----------------------------------------------------*/
@@ -183,11 +148,9 @@
   display:      flex;
 }
 
-
 /*                                    TOGGLER BUTTON
 ----------------------------------------------------*/
- 
-/*           Size / Position / Shape 
+ /*           Size / Position / Shape 
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
 .navbar-toggler {
   padding:       10px;
@@ -208,21 +171,49 @@
   outline: 1px solid #FF70C0;
   
 }
+
 /*                                           WELCOME MESSAGE
 ============================================================*/
 .welcome-message {
   font-size:20px;
-  font-family: "Milford-nLjO";
   color:#000000;
 }
-/*                                           Links in row - Small Screens
+
+/*                                    Toggler items settings
 ============================================================*/
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  /*  Horizontal align to the right
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
   .navbar-nav {
-    flex-direction: row !important;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  /*                 Fixed postions
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+  .navbar-nav .nav-item {
+    position: relative!important; 
+    margin-top: 10px;
+    margin-right: 10px;
   }
 
-  .navbar-nav .nav-item {
-    margin-right: 10px; /* Optional: Add some spacing between navbar items */
+  /* Over content instead of pushing down
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+  .dropdown-menu {
+    position: absolute!important;
+    min-width: auto!important;
+  }
+  
+/*           Align with profile-btn
+  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
+  .post-btn {
+    margin-top: 15px;
+    margin-right: 10px;
   }
 }
+
+
+
+
+
+
+

@@ -87,7 +87,7 @@ class UserProfile(models.Model):
     country = models.CharField(blank=True, max_length=20)
     
     def __str__(self):
-        return self.user.first_name if self.user else "No associated user"
+      return self.user.full_name() if self.user else "No associated user"
     
     def full_address(self):
         return self.address
