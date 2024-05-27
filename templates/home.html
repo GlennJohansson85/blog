@@ -3,13 +3,13 @@
 
 {% block content %}
 <div class="background-blue">
-    <div class="background-light-blue">
+    <div class="background-lightblue">
         <h1>Post Wall</h1>
-        <div class="post-container">
+        <div class="background-white">
             {% if posts_with_comments %}
                 {% for item in posts_with_comments %}
                     <div class="post-card">
-                        <h3 class="post-title">{{ item.post.title }}</h3>
+                        <h2 class="post-title">{{ item.post.title }}</h2>
                         <div class="post-img-container">
                             {% if item.post.img %}
                                 <img class="post-img" src="{{ item.post.img.url }}" alt="{{ item.post.title }}">
@@ -17,7 +17,6 @@
                         </div>
                         <p class="post-content">{{ item.post.short_content }}</p>
                         <p class="post-meta">By: {{ item.post.user.user_name}} | Posted on: {{ item.post.created_at }}</p>
-                        <a href="{% url 'post_detail' post_id=item.post.id %}" class="post-comment-btn">Add a Comment!</a>
                         <h4>Comments</h4>
                         <ul>
                             {% for comment in item.comments %}
@@ -26,6 +25,7 @@
                                 <li>No comments for this post.</li>
                             {% endfor %}
                         </ul>
+                        <a class="btn btn-primary comment-btn" type="button" href="{% url 'post_detail' post_id=item.post.id %}"><h5>Add a Comment!</h5></a>
                     </div>
                 {% endfor %}
             {% else %}

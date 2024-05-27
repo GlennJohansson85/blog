@@ -11,22 +11,28 @@
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 
 
-/*                                            Applied to all templates
+/*                                                                BASE
 **********************************************************************/
+/*                                                FONT FAMILY
+=============================================================*/
+
+@font-face {
+    font-family: 'SociollaRegular-5yayL';
+    src: url('/static/font/SociollaRegular-5yayL.ttf') format('TrueType');
+}
+
+
+@font-face {
+    font-family: 'SalisburyBold-PVZXr';
+    src: url('/static/font/SalisburyBold-PVZXr.ttf') format('TrueType');
+}
+
+
 html {
     max-width: 1200px!important;
     margin: 0 auto;
-    font-family: 'Milford-nLjO';
+    
 }
-
-@font-face {
-    font-family: 'Milford-nLjO';
-    src: url('/static/font/Milford-nLjO.ttf') format('TrueType');
-  }
-
-body {
-    font-family: 'Milford-nLjO';
-}  
 
 .background-blue {
     padding-top: 20px;
@@ -35,7 +41,7 @@ body {
     
 }
 
-.background-light-blue {
+.background-lightblue {
     max-width: 1050px;
     margin: 0 auto;
     padding: 20px;
@@ -43,21 +49,49 @@ body {
     border-radius: 20px;
 }
 
-h1 {
+.background-white {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+
+h1,h2,h3,h4,h5,h6 {font-family: 'SalisburyBold-PVZXr';}
+
+h1 { /* postwall  */
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 30px;
-    font-weight: bold;
     color: #FF70C0;
-    text-shadow: 3px 1px 1px #f2aece;
+    text-shadow: 3px 0px 1px  #f2aece;
 }
 
-h3 {
 
-    margin-left: 20px;
-    font-weight: bold;
-    color: #FF70C0;
-    text-shadow: 3px 1px 1px #f2aece;
+h2 { /* post title */
+    margin-top: -10px;
+    margin-left: 10px;
+
+}
+
+h3 { /* Brand Btn  */
+    margin-bottom: -5px;
+
+}
+
+h4 { /* Comments title */
+
+}
+
+h5 { /* Comment Btn  */
+    margin-top: 3px;
+    margin-bottom: -2px;
+
+    
+}
+
+h6 {
+
 }
 
 /*                                                           HOME.HTML
@@ -66,13 +100,7 @@ h3 {
 =============================================================*/
 /*                                    POST-CONTAINER
 ----------------------------------------------------*/
-.post-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 20px;
-    
-}
+
 /*                                         POST-CARD
 ----------------------------------------------------*/
 .post-card {
@@ -85,9 +113,7 @@ h3 {
 }
 /*                                         POST-TITLE
 ----------------------------------------------------*/
-.post-title {
-    margin-bottom: 10px;
-}
+
 /*                                          POST-IMG
 ----------------------------------------------------*/
 /*              Post align img center
@@ -120,8 +146,27 @@ h3 {
     font-style: italic;
     color: #999;
 }
+/*                    Comment button
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 
-.post-comment-btn
+.comment-btn {
+    padding-bottom: -20px;
+    
+    border-radius:      10px;
+    margin-right:       10px;
+    color:            #FF70C0;
+    border-color:     #FF70C0;
+    background-color: #c1d6de;
+  
+}
+  
+.comment-btn:hover {
+    color:            #FFF;
+    background-color: #F2AECE;
+    border-color:     #FF70C0;
+}
+
+
 
 /* Message displayed when there are no posts */
 .no-posts-message {
@@ -130,7 +175,6 @@ h3 {
     text-align: center;
     margin-top: 20px;
 }
-
 
 
 
