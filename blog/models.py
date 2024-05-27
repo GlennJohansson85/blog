@@ -4,6 +4,7 @@ from django.utils import timezone
 from profiles.models import Profile
 
 
+#___________________________________________________________Post
 class Post(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
     title = models.CharField(max_length=50)
@@ -18,6 +19,7 @@ class Post(models.Model):
 
     def short_content(self):
         return self.content[:100]
+
 
 #___________________________________________________________Comment
 class Comment(models.Model):

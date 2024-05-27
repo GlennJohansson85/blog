@@ -44,9 +44,17 @@ body {
 }
 
 h1 {
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left: 30px;
+    font-weight: bold;
+    color: #FF70C0;
+    text-shadow: 3px 1px 1px #f2aece;
+}
+
+h3 {
+
+    margin-left: 20px;
     font-weight: bold;
     color: #FF70C0;
     text-shadow: 3px 1px 1px #f2aece;
@@ -54,36 +62,51 @@ h1 {
 
 /*                                                           HOME.HTML
 **********************************************************************/
-/* Container for the post wall */
+/*                                                  POST WALL
+=============================================================*/
+/*                                    POST-CONTAINER
+----------------------------------------------------*/
 .post-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    outline: 5px solid #f2aece;
     border-radius: 20px;
+    
 }
-
-/* Style for each post */
-.post {
-    margin-bottom: 20px; /* Add space between posts */
+/*                                         POST-CARD
+----------------------------------------------------*/
+.post-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
 }
-
-/* Title of each post */
+/*                                         POST-TITLE
+----------------------------------------------------*/
 .post-title {
-    font-size: 24px;
-    color: #333;
     margin-bottom: 10px;
 }
-
-/* Image displayed in each post */
+/*                                          POST-IMG
+----------------------------------------------------*/
+/*              Post align img center
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
+.post-img-container {
+    text-align: center; 
+    padding: 20px;
+}
+/*          Post img rounded corners
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .post-img {
     max-width: 100%;
-    border-radius: 20px;
     height: auto;
-    margin-bottom: 10px;
+    border-radius: 20px;
 }
-
-/* Content of each post */
+/*                            POST CONTENT + COMMENTS
+----------------------------------------------------*/
+/*             Post content settings
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .post-content {
     font-size: 16px;
     line-height: 1.5;
@@ -91,11 +114,14 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* Username and timestamp */
+/*         Post username + timestamp
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .post-meta {
     font-style: italic;
     color: #999;
 }
+
+.post-comment-btn
 
 /* Message displayed when there are no posts */
 .no-posts-message {

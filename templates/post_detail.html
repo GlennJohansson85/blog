@@ -1,0 +1,42 @@
+<!-- blog/templates/post_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    {% if post.img %}
+        <img src="{{ post.img.url }}" alt="Post image" />
+    {% endif %}
+    <p>{{ post.content }}</p>
+    <p>Posted by: {{ post.user.user_name }}</p>
+    <p>Created at: {{ post.created_at }}</p>
+
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in comments %}
+            <li><strong>{{ comment.user.user_name }}:</strong> {{ comment.text }}</li>
+        {% empty %}
+            <li>No comments yet.</li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}
+        <h2>Add a comment</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit">Post Comment</button>
+        </form>
+    {% else %}
+        <p>You need to <a href="{% url 'login' %}">login</a> to add a comment.</p>
+    {% endif %}
+</body>
+</html>
+{% endblock %}
