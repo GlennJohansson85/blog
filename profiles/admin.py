@@ -1,3 +1,4 @@
+#profiles/admin.py
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Profile
@@ -16,15 +17,9 @@ class ProfileAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_admin', 'is_staff', 'is_active', 'is_inactive', 'is_published')}),
     )
 
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('username', 'email', 'first_name', 'last_name', 'phone_number', 'profile_picture', 'password1', 'password2'),
-        }),
-    )
-
     filter_horizontal = ()
     list_filter = ()
+    fieldsets = ()
 
     def thumbnail(self, obj):
         if obj.profile_picture:
@@ -32,5 +27,9 @@ class ProfileAdmin(UserAdmin):
         else:
             return None
 
+    thumbnail.short_description = 'Profile Picture'
+
+
 admin.site.register(Profile, ProfileAdmin)
+
 

@@ -1,3 +1,4 @@
+# profiles/context_processors.py
 from .models import Profile
 
 def profile_picture(request):
