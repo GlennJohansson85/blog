@@ -146,17 +146,12 @@ def reset_password(request):
 @login_required(login_url='login')
 def edit_profile(request):
     if request.method == 'POST':
-        # Instantiate form with both POST data and files data
         user_form = UserForm(request.POST, request.FILES, instance=request.user)
         if user_form.is_valid():
-            # Save the form to update the user's profile
             user_form.save()
-            # Redirect the user to a success page or back to the edit profile page
-            return redirect('edit_profile')  # Change this to the appropriate URL name
+            return redirect('edit_profile')
     else:
-        # For GET requests, initialize the form with the user's current data
         user_form = UserForm(instance=request.user)
-    # Render the template with the form
     return render(request, 'profiles/edit_profile.html', {'user_form': user_form})
 
 #___________________________________________________________change_password
