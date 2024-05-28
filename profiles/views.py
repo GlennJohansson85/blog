@@ -17,23 +17,33 @@ import requests
 def register(request):
 
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
+        form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            user_name       = email.split("@")[0]
-            password        = form.cleaned_data['password']
+            username        = form.cleaned_data['email'].split("@")[0]
             first_name      = form.cleaned_data['first_name']
             last_name       = form.cleaned_data['last_name']
-            phone_number    = form.cleaned_data['phone_number']
             email           = form.cleaned_data['email']
-            user            = Profile.objects.create_user(
-                user_name   = user_name,
+            phone_number    = form.cleaned_data['phone_number']
+            password        = form.cleaned_data['password']
+            profile_picture = form.cleaned_data['profile_picture']
+            
+            # Creates user
+            user = Profile.objects.create_user(
+                username    = username,
                 password    = password,
                 email       = email,
                 first_name  = first_name,
                 last_name   = last_name,
+                profile_picture=profile_picture,
                 )
+            
+            # Not required
             user.phone_number = phone_number
+            if profile_picture:
+                user.profile_picture = profile_picture
             user.save()
+            
+            # Email verification
             current_site    = get_current_site(request)
             mail_subject    = 'Please activate your account'
             message         = render_to_string('profiles/verification_email.html', {
@@ -42,16 +52,20 @@ def register(request):
                 'uid'   : urlsafe_base64_encode(force_bytes(user.pk)),
                 'token' : default_token_generator.make_token(user),
             })
+            
             to_email    = email
             send_email  = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
-            messages.success(request, 'Activation link sent to your email!')
+            
+            #messages.success(request, 'Activation link sent to your email!')
             return redirect('/profiles/login/?command=verification&email='+email)
     else:
         form = RegistrationForm()
+        
     context = {
         'form': form,
     }
+    
     return render(request, 'profiles/register.html', context)
 
 
@@ -112,18 +126,11 @@ def activate(request, uidb64, token):
 #___________________________________________________________dashboard
 @login_required(login_url='login')
 def dashboard(request):
-    try:
-        Profile = Profile.objects.get(user_id=request.user.id)
-    except Profile.DoesNotExist:
-        # If UserProfile doesn't exist, create one
-        Profile = Profile.objects.create(user=request.user.id)
-    
+    profile = request.user  # Directly use the logged-in user
     context = {
-        'Profile': Profile,
+        'profile': profile,
     }
     return render(request, 'profiles/dashboard.html', context)
-
-
 #___________________________________________________________reset_password
 def reset_password(request):
 
@@ -150,7 +157,7 @@ def reset_password(request):
 @login_required(login_url='login')
 def edit_profile(request):
     if request.method == 'POST':
-        user_form = UserForm(request.POST, instance=request.user)
+        user_form = UserForm(request.POST, request.FILES, instance=request.user)
         if user_form.is_valid():
             user_form.save()
             messages.success(request, 'Your Profile has been updated!')
@@ -172,7 +179,7 @@ def change_password(request):
         new_password         = request.POST['new_password']
         confirm_new_password = request.POST['confirm_new_password']
 
-        user = Profile.objects.get(username__exact=request.user.username)
+        user = Profile.objects.get(user_name__exact=request.user.username)
 
         if new_password == confirm_new_password:
             success = user.check_password(current_password)

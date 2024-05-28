@@ -1,76 +1,65 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 <section class="section-conten padding-y bg">
-    {% include 'includes/alerts.html' %}
-    <div class="container">
-        <div class="row">
-            {% include 'includes/dashboard_sidebar.html' %}
-            <main class="col-md-9">
-                <article class="card">
-                    <header class="card-header">
-                        <strong class="d-inline-block mr-3">Edit Profile</strong>
-                    </header>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-row">
-                                    <div class="form-group col-md-5">
-                                        {% if userprofile.profile_picture %}
-                                            <img src="{{ userprofile.profile_picture.url }}" alt="Profile Picture" width="250">
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="profile_picture">Change Profile Picture:</label>
-                                        {{ profile_form.profile_picture }}
+    <div class="background-blue">
+        <div class="background-lightblue">
+            {% include 'includes/alerts.html' %}
+            <div class="container">
+                <div class="row">
+                    {% include 'includes/dashboard_sidebar.html' %}
+                    <main class="col-md-9">
+                        <article class="card">
+                            <header class="card-header">
+                                <strong class="d-inline-block mr-3">Edit Profile</strong>
+                            </header>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="form-row">
+                                                <div class="form-group col-md-5">
+                                                    <label for="Profile Picture">Change Profile Picture:</label>
+                                                    <img src="{{ profile_picture_url }}" alt="Profile" width="250">
+                                                    {{ user_form.profile_picture }}
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>First Name:</label>
+                                                    {{ user_form.first_name }}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Last Name:</label>
+                                                    {{ user_form.last_name }}
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>Email:</label>
+                                                    {{ user_form.email }}
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Phone number:</label>
+                                                    {{ user_form.phone_number }}
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>Username:</label>
+                                                    {{ user_form.username }}
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="Save" class="btn btn-primary">
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label>First Name:</label>
-                                            {{ user_form.first_name }}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label>Last Name:</label>
-                                            {{ user_form.last_name }}
-                                        </div> 
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label>Phone number:</label>
-                                            {{ user_form.phone_number }}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label>Address</label>
-                                            {{ profile_form.address }}
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label>City:</label>
-                                            {{ profile_form.city }}
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label>Country:</label>
-                                            {{ profile_form.country }}
-                                        </div>
-                                        <input type="submit" value="save" class="btn btn-primary">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </main>
+                        </article>
+                    </main>
+                </div>
+            </div>    
         </div>
     </div>
 </section>

@@ -38,6 +38,8 @@ html {
     padding-top: 20px;
     background-color: #93c7d8;
     margin: 0 auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     
 }
 
@@ -178,11 +180,6 @@ h6 {
 
 
 
-
-
-
-
-
 /*                                        RESPONSIVE SETTINGS
 ============================================================*/
 /*                                            NAVBAR
@@ -201,4 +198,4 @@ h6 {
       width: 100%;
     }
   }
-  
+
