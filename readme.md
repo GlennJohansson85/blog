@@ -7,7 +7,35 @@ This is a Python based Blog Project.
 ### Features
 
 1. **User Registration:**
-   Use
+     Users register adding their username, first/last - name, email and password. Password needs to be typed in two times for security reasons.
+     If Passwords dont match, or the user choosing a used username alert messages will show.
+   If The registration is a success a success message will show and a verification email will be sent to the provided email. Here the User needs to click on the verfication link to verify their account. When pressing the link it will also redirect them to the login page where they need to enter their username and passowrd. Exactly as the registration process if the username or password is invalid an error message will show and a success message if the details are correct. When logged in the user will be greated with a wellcome message followed by there username.
+   Authentication is provided by Allauth (auth)
+     
+3. **Dashboard**
+    Each user can access their dashboard through the navbar using the Profile picture button in the top right corner.
+    Note that it first appear broken due to there is no image.
+   Within the dashboard users have access to the following:
+   * "2.2 Dashboard"
+   * "2.1 Edit Profile"
+   * "2.3 Reset Password"
+
+     2.1 **Edit Profle**
+     Here the user can change all their details and also add their profile picture, which will show in the navbar + in the profile class in      the django admin interface. Phonenumber is also optional to provide.
+
+     2.2 **Dashboard**
+     Here the user will see their enlarged profile picture aswell as their phonenumber
+
+     2.3. **Reset Password**
+     If the user wants to  change password he/she must type his current one and then the new passwords 2 times. Error/success message will       show if it didnt work/worked.
+
+4. **Login**
+   If the user forgets his/hers password there is a link where the user can provide their email address to create a new one. Just like the     registration process.
+   If the user dont have an account he/she can register through the link shown here.
+   
+5. **Logout**
+   When the user has logged out a success message will show and the profile picture is removed and instead of wellcome (username) it is now    wellcome Guest! shown in the navbar. 
+     
 
 2. **User Login:**
    - Registered users can log in using their credentials.
