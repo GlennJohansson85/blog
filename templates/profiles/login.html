@@ -1,36 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <section class="section-conten padding-y" style="min-height:84vh">
-    {% if request.GET.command == 'verification' %}
-      <div class="container mx-auto alert alert-info text-center" role="alert" style="max-width: 1024px; margin-top:100px;">
-    Happy to have you with us! Please verify your account in "Verification Email" we´ve just sent. [{{ request.GET.email }}]
-    <br><br>
-    <a href="{% url 'login' %}">Login</a>
-  </div>
-  {% else %}
-  <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
-    <div class="card-body">
-    <h4 class="card-title mb-4">Login</h4>
-    {% include 'includes/alerts.html' %}
-      <form action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-          <input type="email" class="form-control" placeholder="Email" name="email">
+  <div class="background-blue">
+    <div class="background-lightblue">      
+      {% if request.GET.command == 'verification' %}
+        <div class="container mx-auto alert alert-info text-center" role="alert" style="max-width: 1024px; margin-top:100px;">
+          Happy to have you with us! Please verify your account in "Verification Email" we´ve just sent. [{{ request.GET.email }}]
+          <br><br>
+          <a href="{% url 'login' %}">Login</a>
         </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password" name="password">
+      {% else %}
+      <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+        <div class="card-body">
+        <h4 class="card-title mb-4">Login</h4>
+          {% include 'includes/alerts.html' %}
+            <form action="{% url 'login' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" name="email">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="password">
+              </div>
+              <div class="form-group">
+                <a href="{% url 'reset_password' %}" class="float-right">Forgot your Password?</a>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="submit-button-small"><h5>Submit</h5></button>
+              </div>
+            </form>
         </div>
-        <div class="form-group">
-          <a href="{% url 'reset_password' %}" class="float-right">Forgot your Password?</a>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="submit-button"><h4>Submit</h4></button>
-        </div>
-      </form>
-    </div>
-  <p class="text-center mt-4">Don't have an Account? <a href="{% url 'register' %}">Register Here!</a></p>
-  <br><br>
-  {% endif %}
+      <p class="text-center mt-4">Don't have an Account? <a href="{% url 'register' %}">Register Here!</a></p>
+      <br><br>
+      {% endif %}
 </section>
 {% endblock %}
