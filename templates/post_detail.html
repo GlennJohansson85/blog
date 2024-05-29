@@ -38,12 +38,13 @@
                 {% if user.is_authenticated %}
                     <h5>Add a comment</h5>
                     <form method="post">
-                        <input type="hidden" name="csrfmiddlewaretoken" value="vspkDoickljzOIyzbf6Tl440wbYJvyk2glfC9IyJLujfeCom5hBL2Srw3WsUVBdx">
-                        <p>
-                            <label for="id_text"></label>
-                            <textarea name="text" cols="40" rows="10" required="" id="id_text"></textarea>
-                        </p>
-                        <button class="create-post-submit" type="submit"><h5>Submit</h5></button>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div>
+                                <textarea name="text" cols="100" rows="3" required="" id="id_text"></textarea>
+                            </div>
+                        </div>
+                        <button class="submit-button-big" type="submit"><h4>Submit</h4></button>
                     </form>
                 {% else %}
                     <p>You need to <a href="{% url 'login' %}">login</a> to add a comment.</p>

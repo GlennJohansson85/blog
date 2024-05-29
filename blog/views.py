@@ -1,5 +1,5 @@
 #blog/views.py
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
 from .models import Post
@@ -48,7 +48,7 @@ def post_detail(request, post_id):
         if comment_form.is_valid():
             profile = request.user
             comment_form.save(user=profile, post=post)
-            return redirect('post_detail', post_id=post.id)
+            return redirect('home')
     else:
         comment_form = CommentForm()
 

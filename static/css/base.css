@@ -201,17 +201,33 @@ h5 { /*             Buttons */
     margin: auto;
 }
 
-.create-post-submit{
-    padding-bottom: -20px;
+.submit-button-big {
+    padding:            10px;
+    padding-bottom:     0px;
     border-radius:      10px;
     margin-right:       10px;
     color:            #FF70C0;
     border-color:     #FF70C0;
     background-color: #c1d6de;
-  
 }
-  
-.create-post-submit:hover {
+
+.submit-button-big:hover {
+    color:            #FFF;
+    background-color: #F2AECE;
+    border-color:     #FF70C0;
+}
+
+.submit-button-small {
+    padding-left:       10px;
+    padding-right:      10px;
+    border-radius:      10px;
+    margin-right:       10px;
+    color:            #FF70C0;
+    border-color:     #FF70C0;
+    background-color: #c1d6de;
+}
+
+.submit-button-small:hover {
     color:            #FFF;
     background-color: #F2AECE;
     border-color:     #FF70C0;
