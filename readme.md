@@ -62,27 +62,16 @@ As always I have a tendency to get stuck where the most fun is. Something I´ve 
 
 ### Testing
 
-Ive done numerous testing on both this and my first 4 project submission (
-#### Python test
-In "tests.py" within the "blog_app" folder all tests performed can be showned excepts responsive tests and formalia:
-* def test_user_registration_view
-* def test_user_login_view
-* def test_home_view
-* def test_post_category_view
-* def test_post_create_view
-* def test_delete_post_view
-* def test_comment_view
-![image](https://github.com/GlennJohansson85/rootfolder/assets/139962883/a1c9475c-80bf-487d-b8be-935b581b868c)
+Ive done numerous testing on both this and my first 4 project submission "Memories" and "Memories1" which also are puplic here on github. 
+Ive also taken alot of the work from P5 and implemented here in p4. In otherwords please check those repos aswell to see the tests ive done. 
 
-#### Responsiveness - test - Iphone
-![image](https://github.com/GlennJohansson85/rootfolder/assets/139962883/f3d88262-d2aa-4dc0-9c9f-f04995496a67)
+I´ve used Visual Studios extensions for Flake8/pep8 tests and no errors. 
+I´ve check all pages in various views (smartphone/Ipad/4k/1080p/1440p)
 
-#### FLAKE8
-Used Visual Studios built-in pep8 control - No errors
-(Note: First time using VS so i really hope I did it correct) 
 
-## Agile - light
-![image](https://github.com/GlennJohansson85/rootfolder/assets/139962883/05a8633a-3a75-405a-bd70-98bff0895b57)
+
+### Agile
+I´ve Used AGILE when estimating what work must/should/could be done. 
 
 ## Credits
 - Code Institue lessons
@@ -91,6 +80,20 @@ Used Visual Studios built-in pep8 control - No errors
 - Django official homepage
 - Django Forum
 - Upwork.com
+- UDEMY
+- FREE LOGO Maker
+- FontSpace
+- Temp Mail
+
+### Deployment
+
+God, I hope I really can make it work this time. 
+
+### Notes:
+
+* Wish I could have fixed the search function, the pvp messaging, the friends dropdown button and the profile picture button nicer looking when in guest mode.
+* Overall I´m happy with my work even though with out mentor support. 
+  
 
 ### Developer
 Glenn Johansson
