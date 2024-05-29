@@ -4,33 +4,40 @@
 {% block content %}
 <div class="background-blue">
     <div class="background-lightblue">
+
+        <!-- Page Title -->
         <h1>Post Wall</h1>
-        <div class="background-white">
-            {% if posts_with_comments %}
-                {% for item in posts_with_comments %}
-                    <div class="post-card">
-                        <h2 class="post-title">{{ item.post.title }}</h2>
-                        <div class="post-img-container">
-                            {% if item.post.img %}
-                                <img class="post-img" src="{{ item.post.img.url }}" alt="{{ item.post.title }}">
-                            {% endif %}
+            <div class="background-white">
+                {% if posts_with_comments %}
+                    {% for item in posts_with_comments %}
+
+                        <!-- Post Content -->
+                        <div class="post-card">
+                            <h2 class="post-title">{{ item.post.title }}</h2>
+                            <div class="post-img-container">
+                                {% if item.post.img %}
+                                    <img class="post-img" src="{{ item.post.img.url }}" alt="{{ item.post.title }}">
+                                {% endif %}
+                            </div>
+                            
+                            <p class="post-content">{{ item.post.short_content }}</p>
+                            <p class="post-meta">By: {{ item.post.user.username}} | Posted on: {{ item.post.created_at }}</p>
+                            
+                            <!-- Comment Section -->
+                            <h4>Comments</h4>
+                            <ul>
+                                {% for comment in item.comments %}
+                                    <li><strong>{{ comment.user.username }}:</strong> {{ comment.text }}</li>
+                                {% empty %}
+                                    <li>No comments for this post.</li>
+                                {% endfor %}
+                            </ul>
+                            <a class="btn btn-primary comment-btn" type="button" href="{% url 'post_detail' post_id=item.post.id %}"><h5>Add a Comment!</h5></a>
                         </div>
-                        <p class="post-content">{{ item.post.short_content }}</p>
-                        <p class="post-meta">By: {{ item.post.user.user_name}} | Posted on: {{ item.post.created_at }}</p>
-                        <h4>Comments</h4>
-                        <ul>
-                            {% for comment in item.comments %}
-                                <li>{{ comment.text }}</li>
-                            {% empty %}
-                                <li>No comments for this post.</li>
-                            {% endfor %}
-                        </ul>
-                        <a class="btn btn-primary comment-btn" type="button" href="{% url 'post_detail' post_id=item.post.id %}"><h5>Add a Comment!</h5></a>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <p class="no-posts-message">No posts available.</p>
-            {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <p class="no-posts-message">No posts available.</p>
+                {% endif %}
         </div>
     </div>
 </div>

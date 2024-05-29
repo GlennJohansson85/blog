@@ -3,40 +3,53 @@
 {% load static %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ post.title }}</title>
-</head>
-<body>
-    <h1>{{ post.title }}</h1>
-    {% if post.img %}
-        <img src="{{ post.img.url }}" alt="Post image" />
-    {% endif %}
-    <p>{{ post.content }}</p>
-    <p>Posted by: {{ post.user.user_name }}</p>
-    <p>Created at: {{ post.created_at }}</p>
+<div class="background-blue">
+    <div class="background-lightblue">
 
-    <h2>Comments</h2>
-    <ul>
-        {% for comment in comments %}
-            <li><strong>{{ comment.user.user_name }}:</strong> {{ comment.text }}</li>
-        {% empty %}
-            <li>No comments yet.</li>
-        {% endfor %}
-    </ul>
+        <!-- Page Title -->
+        <h1>Post Details</h1>
+        
+            <!-- Post Content -->
+            <div class="post-card">
+                <div class="background-white">
+                <h2 class="post-title">{{ post.title }}</h2>
+                    <div class="post-img-container">
+                        {% if post.img %}
+                            <img src="{{ post.img.url }}" class="post-img img-fluid" alt="Post image"/>
+                        {% endif %}
+                    </div>
+                    <div class="post-details">
+                        <p class="post-content">{{ post.content }}</p>
+                        <p class="post-meta">Posted by: {{ post.user.username }} | Date: {{ post.created_at }}</p>
+                    </div>
+                </div>
 
-    {% if user.is_authenticated %}
-        <h2>Add a comment</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ comment_form.as_p }}
-            <button type="submit">Post Comment</button>
-        </form>
-    {% else %}
-        <p>You need to <a href="{% url 'login' %}">login</a> to add a comment.</p>
-    {% endif %}
-</body>
-</html>
+                <!-- Post Comments Section -->
+                <h4>Comments</h4>
+                    <ul>
+                        {% for comment in comments %}
+                            <li><strong>{{ comment.user.username }}:</strong> {{ comment.text }}</li>
+                        {% empty %}
+                            <li>No comments yet.</li>
+                        {% endfor %}
+                    </ul>
+
+                <!-- Add Post Comment Section -->
+                {% if user.is_authenticated %}
+                    <h5>Add a comment</h5>
+                    <form method="post">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="vspkDoickljzOIyzbf6Tl440wbYJvyk2glfC9IyJLujfeCom5hBL2Srw3WsUVBdx">
+                        <p>
+                            <label for="id_text"></label>
+                            <textarea name="text" cols="40" rows="10" required="" id="id_text"></textarea>
+                        </p>
+                        <button class="create-post-submit" type="submit"><h5>Submit</h5></button>
+                    </form>
+                {% else %}
+                    <p>You need to <a href="{% url 'login' %}">login</a> to add a comment.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

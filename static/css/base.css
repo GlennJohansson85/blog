@@ -11,149 +11,137 @@
 ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 
 
-/*                                                                BASE
+
+
+/*                                                       ALL TEMPLATES
 **********************************************************************/
-/*                                                FONT FAMILY
+/*                                                   SETTINGS
 =============================================================*/
+@font-face { /*     Headers - Salisbury Bold */
+    font-family:    'SalisburyBold-PVZXr';
+    src:            url('/static/font/SalisburyBold-PVZXr.ttf') format('TrueType');
+}
 
-@font-face {
-    font-family: 'SociollaRegular-5yayL';
-    src: url('/static/font/SociollaRegular-5yayL.ttf') format('TrueType');
+h1,h2,h3,h4,h5,h6 {
+    font-family:    'SalisburyBold-PVZXr'!important;
 }
 
 
-@font-face {
-    font-family: 'SalisburyBold-PVZXr';
-    src: url('/static/font/SalisburyBold-PVZXr.ttf') format('TrueType');
+@font-face { /*     Body - RaftworkDemo Regular */
+    font-family:    'RaftworkDemoRegular-9MoB5';
+    src:            url('/static/font/RaftworkDemoRegular-9MoB5.otf') format('OpenType');
+}
+
+body {
+    font-family:    'RaftworkDemoRegular-9MoB5';
 }
 
 
+/*                                LAYOUT / BACKGROUND
+----------------------------------------------------*/
 html {
-    max-width: 1200px!important;
-    margin: 0 auto;
-    
+    max-width:                  1200px;
+    margin:                     0 auto;
 }
 
-.background-blue {
-    padding-top: 20px;
-    background-color: #93c7d8;
-    margin: 0 auto;
-    border-bottom-left-radius: 20px;
+.background-blue { /*           Navbar + Body Third Background Color */
+    margin:                     0 auto;
+    padding-top:                20px;
+    border-bottom-left-radius:  20px;
     border-bottom-right-radius: 20px;
+    background-color:         #93C7D8;
     
 }
 
-.background-lightblue {
-    max-width: 1050px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #c1d6de;
-    border-radius: 20px;
-}
 
-.background-white {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 20px;
-    
-}
-
-h1,h2,h3,h4,h5,h6 {font-family: 'SalisburyBold-PVZXr';}
-
-h1 { /* postwall  */
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 30px;
-    color: #FF70C0;
-    text-shadow: 3px 0px 1px  #f2aece;
+.background-lightblue { /*      Body Second Background Color */
+    max-width:                  1050px;
+    margin:                     0 auto;
+    padding:                    20px;
+    border-radius:              20px;
+    background-color:         #C1D6DE;
 }
 
 
-h2 { /* post title */
-    margin-top: -10px;
-    margin-left: 10px;
-
+.background-white { /*          Body First Background Color */
+    max-width:                  1000px;
+    margin:                     0 auto;
+    padding:                    20px;
+    border-radius:              20px;
+    backgroud-color:          #FFF;    
 }
 
-h3 { /* Brand Btn  */
-    margin-bottom: -5px;
+/*                                            HEADER
+----------------------------------------------------*/
 
+h1 { /*             Page Title */
+    margin-top:     10px;
+    margin-bottom:  10px;
+    margin-left:    30px;
+    color:        #FF70C0;
+    text-shadow:    3px 0px 1px#f2aece;
 }
 
-h4 { /* Comments title */
-
+h2 { /*             Sub Page + Post Title */
+    margin-top:     -10px;
+    margin-left:    10px;
 }
 
-h5 { /* Comment Btn  */
-    margin-top: 3px;
-    margin-bottom: -2px;
-
-    
+h3 { /*             Not Used????????????????? */
+    margin-bottom:  -5px;
 }
 
-h6 {
-
+h4 { /*             Post Comments Title */
 }
+
+h5 { /*             Buttons */
+    margin-top:     3px;
+    margin-bottom:  -2px;
+}
+
 
 /*                                                           HOME.HTML
 **********************************************************************/
-/*                                                  POST WALL
+/*                                                   POST WALL
 =============================================================*/
-/*                                    POST-CONTAINER
-----------------------------------------------------*/
-
-/*                                         POST-CARD
-----------------------------------------------------*/
 .post-card {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 50px;
-    border-radius: 20px;
-    margin-bottom: 20px;
+    max-width:          900px;
+    margin:             0 auto;
+    padding:            50px;
+    border-radius:      20px;
+    margin-bottom:      20px;
     background-color: #fff;
 }
-/*                                         POST-TITLE
-----------------------------------------------------*/
 
-/*                                          POST-IMG
-----------------------------------------------------*/
-/*              Post align img center
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .post-img-container {
-    text-align: center; 
-    padding: 20px;
+    text-align:         center; 
+    padding:            20px;
 }
-/*          Post img rounded corners
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
+
 .post-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
+    max-width:          100%;
+    height:             auto;
+    border-radius:      20px;
 }
-/*                            POST CONTENT + COMMENTS
+
+/*                                      POST CONTENT
 ----------------------------------------------------*/
-/*             Post content settings
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 .post-content {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #666;
-    margin-bottom: 10px;
+    margin-bottom:  10px;
+    font-size:      16px;
+    line-height:    1.5;
+    color:        #666;
 }
 
-/*         Post username + timestamp
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
-.post-meta {
-    font-style: italic;
-    color: #999;
+.post-meta { /*     Post Stamp */
+    font-style:     italic;
+    color:        #999;
 }
-/*                    Comment button
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
 
+/*                                           COMMENT
+----------------------------------------------------*/
 .comment-btn {
-    padding-bottom: -20px;
-    
+    padding-bottom:     -20px;
     border-radius:      10px;
     margin-right:       10px;
     color:            #FF70C0;
@@ -168,9 +156,6 @@ h6 {
     border-color:     #FF70C0;
 }
 
-
-
-/* Message displayed when there are no posts */
 .no-posts-message {
     font-size: 18px;
     color: #666;
@@ -178,24 +163,65 @@ h6 {
     margin-top: 20px;
 }
 
+/*                                                    CREATE_POST.HTML
+**********************************************************************/
+
+.create-post-card {
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.col-md-2 label {
+    font-family: 'SociollaRegular-5yayL';
+    font-size:  15px;
+    font-weight: bold;
+}
 
 
-/*                                        RESPONSIVE SETTINGS
-============================================================*/
-/*                                            NAVBAR
-----------------------------------------------------*/
-/*                     Large Screens
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-@media (min-width: 992px) {
-    .search {
-      width: ;
-    }
-  }
-  /*                     Small Screens
-  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/ 
-  @media (max-width: 576px) {
-    .search {
-      width: 100%;
-    }
-  }
 
+.create-post-submit{
+    padding-bottom: -20px;
+    border-radius:      10px;
+    margin-right:       10px;
+    color:            #FF70C0;
+    border-color:     #FF70C0;
+    background-color: #c1d6de;
+  
+}
+  
+.create-post-submit:hover {
+    color:            #FFF;
+    background-color: #F2AECE;
+    border-color:     #FF70C0;
+}
+
+/*                                                    POST_DETAIL.HTML
+**********************************************************************/
+.post_detail-img {
+    margin: auto;
+}
+
+.create-post-submit{
+    padding-bottom: -20px;
+    border-radius:      10px;
+    margin-right:       10px;
+    color:            #FF70C0;
+    border-color:     #FF70C0;
+    background-color: #c1d6de;
+  
+}
+  
+.create-post-submit:hover {
+    color:            #FFF;
+    background-color: #F2AECE;
+    border-color:     #FF70C0;
+}
+
+
+form p textarea {
+    width: 100%;
+    padding: 8px; 
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

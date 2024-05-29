@@ -1,44 +1,61 @@
+<!-- templates/create_post.html -->
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-  <div class="background-blue">
-    <div class="background-lightblue">
-      
-        <h1>Create a New Post</h1>
-          <div class="post-container">
-            <div class="background-white">
-              <div class="card-body">
-                <div class="row">
-                    <form method="post" enctype="multipart/form-data">
-                      {% csrf_token %}
-                      <div class="text-center">
-                        <div class="form-group col-md-6">
-                          {{ form.title.label_tag }}
-                          {{ form.title }}
+    <div class="background-blue">
+        <div class="background-lightblue">
+            <h1>Create a New Post</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card create-post-card">
+                        <div class="card-body create-post-body">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                  <div class="col-md-2">
+                                    {{ form.title.label_tag }}
+                                  </div>
+                                  <div class="col-md-2">
+                                    {{ form.title }}
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">
+                                    {{ form.content.label_tag }}
+                                  </div>
+                                  <div class="col-md-2">
+                                    {{ form.content }}
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">
+                                    {{ form.img.label_tag }}
+                                  </div>
+                                  <div class="col-md-2">
+                                    {{ form.img }}
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">
+                                  </div>
+                                  <div class="col-md-1">
+                                    <button type="submit" class="btn btn-success create-post-submit"><h5>Submit</h5></button>
+                                </div>
+                            </form>
                         </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          {{ form.content.label_tag }}
-                          {{ form.content }}
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          {{ form.img.label_tag }}
-                          {{ form.img }}
-                        </div>
-                      </div>
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-              </div>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
     </div>
-  </div>
 {% endblock %}
+
+<div class="row">
+  <div class="col-md-3">
+      <label>First Name:</label>
+  </div>
+  <div class="col-md-2">
+      {{ user_form.first_name }}
+  </div>
+</div>
