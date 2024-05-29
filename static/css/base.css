@@ -17,6 +17,8 @@
 **********************************************************************/
 /*                                                   SETTINGS
 =============================================================*/
+/*                                              FONTS
+----------------------------------------------------*/
 @font-face { /*     Headers - Salisbury Bold */
     font-family:    'SalisburyBold-PVZXr';
     src:            url('/static/font/SalisburyBold-PVZXr.ttf') format('TrueType');
@@ -98,6 +100,76 @@ h5 { /*             Buttons */
     margin-top:     3px;
     margin-bottom:  -2px;
 }
+/*                                           BUTTONS
+----------------------------------------------------*/
+.submit-button-big { /*     Submit Button Big */
+    padding:                10px;
+    padding-bottom:         0px;
+    border-radius:          10px;
+    margin-right:           10px;
+    color:                #FF70C0;
+    border-color:         #FF70C0;
+    background-color:     #c1d6de;
+}
+
+.submit-button-big:hover {
+    color:                #FFF;
+    background-color:     #F2AECE;
+    border-color:         #FF70C0;
+}
+
+.submit-button-small { /*   Submit Button Big */
+    padding-left:           10px;
+    padding-right:          10px;
+    border-radius:          10px;
+    margin-right:           10px;
+    color:                #FF70C0;
+    border-color:         #FF70C0;
+    background-color:     #c1d6de;
+}
+
+.submit-button-small:hover {
+    color:                #FFF;
+    background-color:     #F2AECE;
+    border-color:         #FF70C0;
+}
+
+
+.delete { /*        Delete Button */
+    float:                  right;
+    margin-top:             -10px;
+    margin-left:            10px;
+}
+
+.delete-comment-btn {
+    font-size:              10px;
+    padding:                3px 6px;
+    border-radius:          5px;
+    color:                #FF70C0;
+    background-color:     #FFF;
+    border-color:         #93C7D8;
+}
+
+.delete-comment-btn:hover {
+    color:            #000;
+    background-color: #FF0000;
+    border-color:     #000;
+}
+
+.delete-post-btn {
+    font-size:              15px;
+    border-radius:          5px;
+    color:                #FF70C0;
+    background-color:     #FFF;
+    border-color:         #93C7D8;
+}
+
+.delete-post-btn:hover {
+    color:            #000;
+    background-color: #FF0000;
+    border-color:     #000;
+}
+
 
 
 /*                                                           HOME.HTML
@@ -201,39 +273,8 @@ h5 { /*             Buttons */
     margin: auto;
 }
 
-.submit-button-big {
-    padding:            10px;
-    padding-bottom:     0px;
-    border-radius:      10px;
-    margin-right:       10px;
-    color:            #FF70C0;
-    border-color:     #FF70C0;
-    background-color: #c1d6de;
-}
 
-.submit-button-big:hover {
-    color:            #FFF;
-    background-color: #F2AECE;
-    border-color:     #FF70C0;
-}
-
-.submit-button-small {
-    padding-left:       10px;
-    padding-right:      10px;
-    border-radius:      10px;
-    margin-right:       10px;
-    color:            #FF70C0;
-    border-color:     #FF70C0;
-    background-color: #c1d6de;
-}
-
-.submit-button-small:hover {
-    color:            #FFF;
-    background-color: #F2AECE;
-    border-color:     #FF70C0;
-}
-
-
+/* Custom text area for post comment */
 form p textarea {
     width: 100%;
     padding: 8px; 
@@ -241,3 +282,7 @@ form p textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+
+/*                                                      DELETE BUTTONS
+**********************************************************************/

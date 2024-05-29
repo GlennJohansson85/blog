@@ -9,10 +9,10 @@
         <!-- Page Title -->
         <h1>Post Details</h1>
         
-            <!-- Post Content -->
-            <div class="post-card">
+        <!-- Post Content -->
+        <div class="post-card">
                 <div class="background-white">
-                <h2 class="post-title">{{ post.title }}</h2>
+                    <h2 class="post-title">{{ post.title }}</h2>
                     <div class="post-img-container">
                         {% if post.img %}
                             <img src="{{ post.img.url }}" class="post-img img-fluid" alt="Post image"/>
@@ -21,18 +21,38 @@
                     <div class="post-details">
                         <p class="post-content">{{ post.content }}</p>
                         <p class="post-meta">Posted by: {{ post.user.username }} | Date: {{ post.created_at }}</p>
+                        
+                        <!-- Delete Post Section -->
+                        {% if user.is_authenticated  or user.is_admin %}
+                        <div class="delete">
+                            <form method="post" action="{% url 'delete_post_confirmation' post_id=post.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-post-btn">Delete Post</button>
+                            </form>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
 
-                <!-- Post Comments Section -->
+                <!-- Delete Comment Section -->
                 <h4>Comments</h4>
-                    <ul>
-                        {% for comment in comments %}
-                            <li><strong>{{ comment.user.username }}:</strong> {{ comment.text }}</li>
-                        {% empty %}
-                            <li>No comments yet.</li>
-                        {% endfor %}
-                    </ul>
+                <ul>
+                    {% for comment in comments %}
+                        <li>
+                            <strong>{{ comment.user.username }}:</strong> {{ comment.text }}
+                            {% if user.is_authenticated or user.is_admin %}
+                                <div class="delete">
+                                    <form method="post" action="{% url 'delete_comment' comment_id=comment.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="delete-comment-btn">Delete Comment</button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </li>
+                    {% empty %}
+                        <li>No comments yet.</li>
+                    {% endfor %}
+                </ul> 
 
                 <!-- Add Post Comment Section -->
                 {% if user.is_authenticated %}
@@ -49,8 +69,7 @@
                 {% else %}
                     <p>You need to <a href="{% url 'login' %}">login</a> to add a comment.</p>
                 {% endif %}
-            </div>
-        </div>
+        </div>   
     </div>
 </div>
 {% endblock %}

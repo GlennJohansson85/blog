@@ -1,8 +1,9 @@
 #blog/views.py
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from .forms import PostForm, CommentForm
-from .models import Post
+from .models import Post, Comment
 
 #___________________________________________________________home
 def home(request):
@@ -15,6 +16,7 @@ def home(request):
     
     context = {
         'posts_with_comments': posts_with_comments,
+        'user': request.user, 
     }
     return render(request, "home.html", context)
 
@@ -55,6 +57,34 @@ def post_detail(request, post_id):
     context = {
         'post': post,
         'comments': comments,
-        'comment_form': comment_form
+        'comment_form': comment_form,
+        'user': request.user,
     }
     return render(request, 'post_detail.html', context)
+
+
+@login_required
+def delete_post_confirmation(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    context = {'post': post}
+    return render(request, 'delete_post_confirmation.html', context)
+
+
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user == post.user or request.user.is_admin:
+        post.delete()
+        return redirect('home')
+    else:
+        return HttpResponseForbidden("You are not authorized to delete this post.")
+
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.user == comment.user or request.user.is_admin:
+        comment.delete()
+        return redirect('post_detail', post_id=comment.post.id)
+    else:
+        return HttpResponseForbidden("You are not authorized to delete this comment.")
