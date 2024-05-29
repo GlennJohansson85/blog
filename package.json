@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Blog application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "blog"
+  },
+  "keywords": [
+    "blog",
+    "django",
+    "python",
+    "web-application"
+  ],
+  "author": "Glenn",
+  "license": "ISC"
+}
