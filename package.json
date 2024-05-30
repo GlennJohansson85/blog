@@ -4,6 +4,7 @@
   "description": "Blog application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "npm test"
   },
   "repository": {
