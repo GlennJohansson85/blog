@@ -18,5 +18,8 @@
     "web-application"
   ],
   "author": "Glenn",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
