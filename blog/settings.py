@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'p4-blog',
+    'blog',
     'profiles',
 ]
 
@@ -57,7 +57,7 @@ TEMPLATES = [
         },
     },
 ]
-WSGI_APPLICATION = 'p4-blog.wsgi.application'
+WSGI_APPLICATION = 'blog.wsgi.application'
 
 
 # Database
