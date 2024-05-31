@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'profiles',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -121,8 +122,16 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'your_cloud_name',
+    'API_KEY': 'your_api_key',
+    'API_SECRET': 'your_api_secret',
+}
 # ElephantSQL
 DB_USER = 'pgdemrvo'
 DB_NAME = 'p4-blog'
 DB_PASSWORD = os.environ.get('DB_PASSWORD','')
 DATABASE_URL = os.environ.get('DB_URL','')
+
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL','')
