@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['p4-blog-f04a1ff6a58f.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['p4-blog.herokuapp.com', 'localhost']
 
 AUTH_USER_MODEL = 'profiles.Profile'
 
