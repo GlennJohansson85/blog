@@ -1,1 +1,1 @@
-web: gunicorn p4-blog.herokuapp.com.wsgi:application
+web: gunicorn p4-blog.wsgi

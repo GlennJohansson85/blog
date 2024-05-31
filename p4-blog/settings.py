@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['p4-blog.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['p4-blog-f04a1ff6a58f.herokuapp.com', 'localhost', '8000-glennjohansson85-p4blog-a060fk9lwoz.ws-eu114.gitpod.io']
 
 AUTH_USER_MODEL = 'profiles.Profile'
 
@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'blog.urls'
+ROOT_URLCONF = 'p4-blog.urls'
 
 TEMPLATES = [
     {
@@ -52,12 +52,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'profiles.context_processors.profile_picture',
             ],
         },
     },
 ]
-WSGI_APPLICATION = 'blog.wsgi.application'
+
+WSGI_APPLICATION = 'p4-blog.wsgi.application'
 
 
 # Database
