@@ -1,5 +1,5 @@
-from pathlib import Path
 import os
+from pathlib import Path
 import dj_database_url
 if os.path.isfile("env.py"):
     import env
@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'blog',
     'profiles',
     'cloudinary',
+    'cloudinary_storage',
+    'django_crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -121,16 +123,18 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-
+# Cloudinary
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'your_cloud_name',
     'API_KEY': 'your_api_key',
     'API_SECRET': 'your_api_secret',
 }
+
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL','')
+
 # ElephantSQL
 DB_USER = 'pgdemrvo'
 DB_NAME = 'p4-blog'
 DB_PASSWORD = os.environ.get('DB_PASSWORD','')
 DATABASE_URL = os.environ.get('DB_URL','')
 
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL','')
