@@ -1,6 +1,8 @@
-import os
+import cloudinary
+from cloudinary.uploader import upload
 from pathlib import Path
 import dj_database_url
+import os
 if os.path.isfile("env.py"):
     import env
 
@@ -10,7 +12,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY','')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['p4-blog-f04a1ff6a58f.herokuapp.com', 'localhost', '8000-glennjohansson85-p4blog-a060fk9lwoz.ws-eu114.gitpod.io']
 
@@ -27,8 +29,9 @@ INSTALLED_APPS = [
     'blog',
     'profiles',
     'cloudinary',
-    'cloudinary_storage',
-    'django_crispy_forms',
+    'django-cloudinary-storage',
+    'django-crispy-forms',
+    'gunicorn'
 ]
 
 MIDDLEWARE = [
@@ -122,13 +125,6 @@ EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-
-# Cloudinary
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'your_cloud_name',
-    'API_KEY': 'your_api_key',
-    'API_SECRET': 'your_api_secret',
-}
 
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL','')
 
