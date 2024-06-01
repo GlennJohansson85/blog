@@ -29,8 +29,6 @@ INSTALLED_APPS = [
     'blog',
     'profiles',
     'cloudinary',
-    'django-cloudinary-storage',
-    'django-crispy-forms',
     'gunicorn'
 ]
 
