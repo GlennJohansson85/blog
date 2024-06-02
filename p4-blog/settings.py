@@ -1,7 +1,10 @@
-from cloudinary.uploader import upload
 from pathlib import Path
 import dj_database_url
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 if os.path.isfile("env.py"):
     import env
 
@@ -17,6 +20,9 @@ ALLOWED_HOSTS = ['p4-blog-f04a1ff6a58f.herokuapp.com', 'localhost', '8000-glennj
 
 AUTH_USER_MODEL = 'profiles.Profile'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://p4-blog-f04a1ff6a58f.herokuapp.com',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -126,6 +132,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
+# Cloudinary
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL','')
 
 # ElephantSQL
