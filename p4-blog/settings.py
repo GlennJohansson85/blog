@@ -1,14 +1,19 @@
 from pathlib import Path
-import dj_database_url
-import os
+from dotenv import load_dotenv
+load_dotenv()
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+
+import dj_database_url
+import os
+
+
 if os.path.isfile("env.py"):
     import env
 
-
+config = cloudinary.config(secure=True)
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
