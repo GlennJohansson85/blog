@@ -5,5 +5,4 @@ os.environ['DATABASE_URL'] = 'postgres://pgdemrvo:XiynbljiZdhjyX90SOJCrFPL6S9h38
 os.environ['DATABASE_PASSWORD'] = 'XiynbljiZdhjyX90SOJCrFPL6S9h3833'
 os.environ['EMAIL_HOST_PASSWORD'] = 'tvst rbxb uhyy ytqk'
 os.environ['EMAIL_HOST_USER'] = 'glenncoding@gmail.com'
-os.environ['CLOUDINARY_URL'] = 'cloudinary://681735167721712:7FIRAz3WeOzRSy-37aIi3zTuG1Y@dnldfoz08' 
-
+os.environ['CLOUDINARY_URL'] = 'cloudinary://681735167721712:7FIRAz3WeOzRSy-37aIi3zTuG1Y@dnldfoz08'
