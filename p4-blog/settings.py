@@ -1,25 +1,18 @@
-from pathlib import Path
-from dotenv import load_dotenv
-load_dotenv()
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
-
-import dj_database_url
 import os
-
-
 if os.path.isfile("env.py"):
     import env
 
-config = cloudinary.config(secure=True)
+from pathlib import Path
+from dotenv import load_dotenv
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+import dj_database_url
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY','')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['p4-blog-f04a1ff6a58f.herokuapp.com', 'localhost', '8000-glennjohansson85-p4blog-a060fk9lwoz.ws-eu114.gitpod.io']
 
@@ -109,18 +102,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 MEDIA_URL = '/media/'
