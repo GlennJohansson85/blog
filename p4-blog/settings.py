@@ -1,13 +1,13 @@
 from pathlib import Path
 import os
-
 from dotenv import load_dotenv
-(load_dotenv)
+# Load environment variables from env.py into the environment
+load_dotenv('env.py')
+
 import cloudinary
 import cloudinary.uploader
 import dj_database_url
-if os.path.isfile("env.py"):
-    import env
+
 
 
 
