@@ -1,20 +1,13 @@
+from pathlib import Path
 import os
+
+from dotenv import load_dotenv
+(load_dotenv)
+import cloudinary
+import dj_database_url
 if os.path.isfile("env.py"):
     import env
 
-import cloudinary
-import cloudinary.uploader
-
-cloudinary.config( 
-  cloud_name = "dnldfoz08", 
-  api_key = "681735167721712", 
-  api_secret = "7FIRAz3WeOzRSy-37aIi3zTuG1Y" 
-)
-
-from pathlib import Path
-from dotenv import load_dotenv
-
-import dj_database_url
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +34,6 @@ INSTALLED_APPS = [
     'blog',
     'profiles',
     'cloudinary',
-    'django_cloudinary_storage',
     'gunicorn',
 ]
 
@@ -120,7 +112,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATICFILES_STORAGE = 'django_cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
 
 
 MEDIA_URL = '/media/'
