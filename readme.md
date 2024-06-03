@@ -46,14 +46,13 @@ Here she can change her details (except password) and add her profile picture.
 ##### 1.4.2 Change Password:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/37d2bfe1-0c4c-41a5-978e-6f780f3a09cd)
 
-Here she needs to add her current password and the new password twice. Just like the register process the passwords needs to match.
+Here she needs to add her current password and the new password twice. Just like the register process the passwords needs to match and if the current password is incorrect the following error will show:
 
-##### 1.4.2.1 Error message:
+<br>
+
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/d28ddbff-9a61-4f19-8e45-a2334bb4dbea)
 
-If the current password is incorrect she will see the following error. 
-
-* 1.4.3 Dashboard:
+#### 1.4.3 Dashboard:
   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/a8788a39-550b-4f29-be90-63af1629462d)
    When profile picture added she will (in this case my picture) see her profile picture and beneath here email address and phone number.
   
