@@ -23,7 +23,7 @@
                         <p class="post-meta">Posted by: {{ post.user.username }} | Date: {{ post.created_at }}</p>
                         
                         <!-- Delete Post Section -->
-                        {% if user.is_authenticated  or user.is_admin %}
+                        {% if request.user == post.user or request.user.is_admin %}
                         <div class="delete">
                             <form method="post" action="{% url 'delete_post_confirmation' post_id=post.id %}">
                                 {% csrf_token %}
@@ -40,7 +40,7 @@
                     {% for comment in comments %}
                         <li>
                             <strong>{{ comment.user.username }}:</strong> {{ comment.text }}
-                            {% if user.is_authenticated or user.is_admin %}
+                            {% if request.user == comment.user or request.user.is_admin %}
                                 <div class="delete">
                                     <form method="post" action="{% url 'delete_comment' comment_id=comment.id %}">
                                         {% csrf_token %}
