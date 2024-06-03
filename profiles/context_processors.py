@@ -8,7 +8,7 @@ def profile_context(request):
     if request.user.is_authenticated:
         try:
             profile_picture_url = request.user.profile_picture.url if request.user.profile_picture else None
-            friends = Friendship.objecs.filter(user=request.user).select_related('friend')
+            friends = Friendship.objects.filter(user=request.user).select_related('friend')
         except Profile.DoesNotExist:
             # If Profile doesn't exist
             pass
