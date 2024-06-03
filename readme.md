@@ -52,7 +52,7 @@ Here she needs to add her current password and the new password twice. Just like
 
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/d28ddbff-9a61-4f19-8e45-a2334bb4dbea)
 
-#### 2.3 Dashboard:
+##### 2.3 Dashboard:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/a8788a39-550b-4f29-be90-63af1629462d)
 
 When the profile picture has been added (in this case my picture) she will see her profile picture and beneath: her email address and phone number. 
@@ -62,8 +62,39 @@ When the profile picture has been added (in this case my picture) she will see h
 
 If she forgets her password there is a link provided "Forgot your Password?" where she will be able to create a new one.
 
-#### 3.1 To logout the user has to press the profile picture button in the navbar where she will also have access to her dashboard. 
+##### 3.1 To logout the user has to press the profile picture button in the navbar where she will also have access to her dashboard. 
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/26bc3847-0dd6-4627-987d-7086f4736994)
+
+#### 4. Navbar:
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/83567cd0-7925-4370-b9aa-0dd617f7a83d)
+
+The navbar contains of three buttons: 
+##### 4.1 Brand button: 
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f46b2772-2a41-4759-b3f9-c727f8a552e3)
+
+This button will redirect the user to the homepage = Postwall
+
+##### 4.2 Post Button:
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/0fe64987-3424-4607-96cd-62752b77c167)
+
+This button will redirect the user to the post template:
+<br>
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b373e0c1-9eed-4e94-9e82-0dd630c5e72b)
+
+##### 4.3 Profile Picture Button:
+
+#### 5. Postwall:
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/72c2ee76-aef1-46c1-ab6f-9c6325dac477)
+
+Here all users will see 
+
+##### Eachothers posts = Title, content, author and the date when the post was created. 
+##### Users comments = Username followed by their comment. 
+##### And the "Add Comment button"
+
+##### 5.1 Comments:
+
+
 
 
      
