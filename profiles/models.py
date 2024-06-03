@@ -70,16 +70,3 @@ class Profile(AbstractBaseUser):
 
       def has_module_perms(self, add_label):
             return True
-
-
-#___________________________________________________________Friendship
-class Friendship(models.Model):
-    user_email = models.EmailField()
-    friend_email = models.EmailField()
-    created = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('user_email', 'friend_email')
-
-    def __str__(self):
-        return f"{self.user_email} is friends with {self.friend_email}"

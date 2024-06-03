@@ -9,7 +9,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, UserForm
-from .models import Profile, Friendship
+from .models import Profile
 
 import requests
 
@@ -184,37 +184,3 @@ def change_password(request):
             return redirect('change_password')
 
     return render(request, 'profiles/change_password.html')
-
-
-#___________________________________________________________determine_friend_id
-def determine_friend_email(request):
-    user = request.user
-    first_friendship = Friendship.objects.filter(user_email=user.email).first()
-    if first_friendship:
-        friend_email = first_friendship.friend_email
-    else:
-        friend_email = None
-    return friend_email
-
-#___________________________________________________________get_friends
-@login_required
-def get_friends(request):
-    user = request.user
-    friends = Friendship.objects.filter(user_email=user.email).select_related('friend_email')
-
-    friend_email = determine_friend_email(request)
-
-    return render(request, 'navbar.html', {'friends': friends, 'friend_email': friend_email})
-
-#___________________________________________________________send_friend_request
-@login_required
-def send_friend_request(request, friend_email):
-    if friend_email:
-        try:
-            # Create a new friendship instance using the current user's email and the friend's email
-            Friendship.objects.create(user_email=request.user.email, friend_email=friend_email)
-        except Exception as e:
-            # Handle any exceptions if necessary
-            pass
-
-    return redirect('home.html')
