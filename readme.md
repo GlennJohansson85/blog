@@ -12,14 +12,12 @@ This is a Python/Django based project.
 
 Users register adding their username, first/last - name, email, phone number and password. Password needs to be typed in twice.
 
-##### 1.1 Using a taken email:
+##### 1.1 Using a already registered email address:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b20c0e60-6de9-4a75-8bc0-110e742d3b9e)
 
-
-1.2 Missmatch between passwords - Error: 
-<br>
+##### 1.2 Missmatch between passwords:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f6acd8fb-ee14-41ff-8389-d798221294fb)
-<br>
+
 
 1.3 Successful login:
 <br>
