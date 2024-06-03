@@ -28,14 +28,17 @@
       <ul class="navbar-nav ml-auto">
 
         <!-- Friends Dropdown -->
+        {% if user.is_authenticated %}
         <li class="nav-item dropdown">
           <a class="nav-link friends-button" href="#" id="friendsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-friends fa-3x"></i></a>
           <div class="dropdown-menu" aria-labelledby="friendsDropdown">
-            <a class="dropdown-item" href="#">Friend 1</a>
-            <a class="dropdown-item" href="#">Friend 2</a>
-            <a class="dropdown-item" href="#">Friend 3</a>
+            {% for friendship in friends %}
+              <a class="dropdown-item" href="{% url 'profile' friendship.friend.id %}">{{ friendship.friend.username }}</a>
+            {% endfor %}
+              <a class="dropdown-item" href="{% url 'send_friend_request' friend_id=friend_id_to_send_request_to %}">Add Friend</a>
           </div>
         </li>
+        {% endif %}
 
         <!-- Post button -->
         {% if user.is_authenticated %}
