@@ -7,20 +7,27 @@ This is a Python/Django based project.
 ### Features:
 
 1. **User Registration:**
-   <br>
-   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/af382a25-2f43-4368-84f8-72776b4932e6)
-   <br>
-   Users register adding their username, first/last - name, email, phonenumber and password. Password needs to be typed in two times.
+<br>
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/af382a25-2f43-4368-84f8-72776b4932e6)
+<br>
+Users register adding their username, first/last - name, email, phone number and password. Password needs to be typed in twice.
+<br>
 
-1.1 Same email used register another account - Error: 
-   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b20c0e60-6de9-4a75-8bc0-110e742d3b9e)
+1.1 Same email used register another account - Error:
+<br>
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b20c0e60-6de9-4a75-8bc0-110e742d3b9e)
+<br>
 
 1.2 Missmatch between passwords - Error: 
-   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f6acd8fb-ee14-41ff-8389-d798221294fb)
+<br>
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f6acd8fb-ee14-41ff-8389-d798221294fb)
+<br>
 
 1.3 Successful login:
-   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/18f85c67-ed59-4cce-a3a0-cbd6dbe68c06)
-   
+<br>
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/18f85c67-ed59-4cce-a3a0-cbd6dbe68c06)
+<br>
+
 1.3.1 Activation email:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/35bc7c4c-4334-4951-8da8-3121e2070bd4)
 
