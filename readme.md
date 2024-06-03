@@ -28,11 +28,10 @@ When registering to the site a message will show:
 
 The user needs to verify her account by pressing the verification link sent to her.
 
-
-1.3.2 Clicks on the link and get redirected to the login page:
+###### 1.3.2 Redirected to the login page:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/337e88e7-3540-4c11-b227-32ef02b1d9cb)
 
- When User has logged in she gets directed to her dashboard:
+ When She has logged in she gets directed to her dashboard:
 
 1.4 Dashboard
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/75a459f8-3ee9-4b73-8acc-54414735c246)
