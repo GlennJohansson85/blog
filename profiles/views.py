@@ -195,6 +195,14 @@ def get_friends(request):
 #___________________________________________________________send_friend_request
 @login_required
 def send_friend_request(request, friend_id):
-    friend = Profile.objects.get(id=friend_id)
-    Friendship.objects.create(user=request.user, friend=friend)
-    return redirect('get_friends')
+    # Get the current user
+    user = request.user
+
+    # Retrieve the friend's profile based on the friend_id
+    friend_profile = Profile.objects.get(id=friend_id)
+
+    # Create a friendship instance with the current user and the friend's profile
+    Friendship.objects.create(user=user, friend=friend_profile)
+
+    # Redirect or return a response
+    # For example, redirect to a success page or back to the friends list
