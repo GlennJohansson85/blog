@@ -4,11 +4,11 @@
 
 This is a Python/Django based project. 
 
-### Featurese
+### Features:
 
 1. **User Registration:**
-   Users register adding their username, first/last - name, email, phonenumber and password. Password needs to be typed in two times.
    ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/af382a25-2f43-4368-84f8-72776b4932e6)
+   Users register adding their username, first/last - name, email, phonenumber and password. Password needs to be typed in two times.
 
 1.1 Same email used register another account - Error: 
    ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b20c0e60-6de9-4a75-8bc0-110e742d3b9e)
