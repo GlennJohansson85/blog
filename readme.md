@@ -82,11 +82,13 @@ This button will redirect the user to the post template:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b373e0c1-9eed-4e94-9e82-0dd630c5e72b)
 
 ##### 4.3 Profile Picture Button:
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/bb315b7f-dd81-44da-b094-0f3771a81f4c)
+
 
 #### 5. Postwall:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/72c2ee76-aef1-46c1-ab6f-9c6325dac477)
 
-Here all users will see 
+Here all users will see the following:
 
 ##### Eachothers posts = Title, content, author and the date when the post was created. 
 ##### Users comments = Username followed by their comment. 
