@@ -2,6 +2,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
+
+
 #___________________________________________________________ProfileManager
 class ProfileManager(BaseUserManager):
     
@@ -72,12 +74,12 @@ class Profile(AbstractBaseUser):
 
 #___________________________________________________________Friendship
 class Friendship(models.Model):
-    user = models.ForeignKey(Profile, related_name='friendship_creator_set', on_delete=models.CASCADE)
-    friend = models.ForeignKey(Profile, related_name='friend_set', on_delete=models.CASCADE)
+    user_email = models.EmailField()
+    friend_email = models.EmailField()
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'friend')
+        unique_together = ('user_email', 'friend_email')
 
     def __str__(self):
-        return f"{self.user.username} is friends with {self.friend.username}"
+        return f"{self.user_email} is friends with {self.friend_email}"

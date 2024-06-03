@@ -14,6 +14,7 @@ from .models import Profile, Friendship
 import requests
 
 
+
 #___________________________________________________________register
 def register(request):
     if request.method == 'POST':
@@ -185,24 +186,35 @@ def change_password(request):
     return render(request, 'profiles/change_password.html')
 
 
+#___________________________________________________________determine_friend_id
+def determine_friend_email(request):
+    user = request.user
+    first_friendship = Friendship.objects.filter(user_email=user.email).first()
+    if first_friendship:
+        friend_email = first_friendship.friend_email
+    else:
+        friend_email = None
+    return friend_email
+
 #___________________________________________________________get_friends
 @login_required
 def get_friends(request):
     user = request.user
-    friends = Friendship.objects.filter(user=user).select_related('friend')
-    return render(request, 'navbar.html', {'friends': friends})
+    friends = Friendship.objects.filter(user_email=user.email).select_related('friend_email')
+
+    friend_email = determine_friend_email(request)
+
+    return render(request, 'navbar.html', {'friends': friends, 'friend_email': friend_email})
 
 #___________________________________________________________send_friend_request
 @login_required
-def send_friend_request(request, friend_id):
-    # Get the current user
-    user = request.user
+def send_friend_request(request, friend_email):
+    if friend_email:
+        try:
+            # Create a new friendship instance using the current user's email and the friend's email
+            Friendship.objects.create(user_email=request.user.email, friend_email=friend_email)
+        except Exception as e:
+            # Handle any exceptions if necessary
+            pass
 
-    # Retrieve the friend's profile based on the friend_id
-    friend_profile = Profile.objects.get(id=friend_id)
-
-    # Create a friendship instance with the current user and the friend's profile
-    Friendship.objects.create(user=user, friend=friend_profile)
-
-    # Redirect or return a response
-    # For example, redirect to a success page or back to the friends list
+    return redirect('home.html')
