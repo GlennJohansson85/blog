@@ -66,9 +66,9 @@ If she forgets her password there is a link provided "Forgot your Password?" whe
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/26bc3847-0dd6-4627-987d-7086f4736994)
 
 #### 4. Navbar:
-![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/83567cd0-7925-4370-b9aa-0dd617f7a83d)
 
 The navbar contains of three buttons: 
+
 ##### 4.1 Brand button: 
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f46b2772-2a41-4759-b3f9-c727f8a552e3)
 
