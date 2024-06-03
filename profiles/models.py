@@ -2,7 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-
 #___________________________________________________________ProfileManager
 class ProfileManager(BaseUserManager):
     
@@ -33,6 +32,7 @@ class ProfileManager(BaseUserManager):
                   raise ValueError('Superuser must have is_staff=True.')
 
             return self.create_user(username, first_name, last_name, email, password, **extra_fields)
+
 
 #___________________________________________________________Profile
 class Profile(AbstractBaseUser):
@@ -69,3 +69,15 @@ class Profile(AbstractBaseUser):
       def has_module_perms(self, add_label):
             return True
 
+
+#___________________________________________________________Friendship
+class Friendship(models.Model):
+    user = models.ForeignKey(Profile, related_name='friendship_creator_set', on_delete=models.CASCADE)
+    friend = models.ForeignKey(Profile, related_name='friend_set', on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'friend')
+
+    def __str__(self):
+        return f"{self.user.username} is friends with {self.friend.username}"
