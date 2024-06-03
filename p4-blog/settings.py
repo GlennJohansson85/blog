@@ -1,13 +1,11 @@
-from pathlib import Path
 import os
-from dotenv import load_dotenv
-# Load environment variables from env.py into the environment
-load_dotenv('env.py')
+from pathlib import Path
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
 
 import cloudinary
 import cloudinary.uploader
-import dj_database_url
-
 
 
 
@@ -17,7 +15,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY','')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['p4-blog-f04a1ff6a58f.herokuapp.com', 'localhost', '8000-glennjohansson85-p4blog-a060fk9lwoz.ws-eu114.gitpod.io']
+ALLOWED_HOSTS = [
+    'p4-blog-f04a1ff6a58f.herokuapp.com',
+    'localhost',
+    '8000-glennjohansson85-p4blog-a060fk9lwoz.ws-eu114.gitpod.io'
+]
 
 AUTH_USER_MODEL = 'profiles.Profile'
 
@@ -34,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'profiles',
+    'cloudinary_storage',
     'cloudinary',
     'gunicorn',
 ]
@@ -115,12 +118,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # Email Verification
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -138,4 +140,3 @@ DB_USER = 'pgdemrvo'
 DB_NAME = 'p4-blog'
 DB_PASSWORD = os.environ.get('DB_PASSWORD','')
 DATABASE_URL = os.environ.get('DB_URL','')
-
