@@ -123,7 +123,7 @@ I wish I could have implemented the following:
 * Brand name change to home when hovering.
 * Style outside the body instead of white.
 * Footer at end of all templates.
-* 
+* My two fontfamilies I spent hours on choosing actually worked
 
 ## Credits
 - Code Institue lessons - and assessors for providing more timee
