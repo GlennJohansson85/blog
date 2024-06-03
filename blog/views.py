@@ -4,9 +4,11 @@ from django.http import HttpResponseForbidden
 from .forms import PostForm, CommentForm
 from .models import Post, Comment
 
-#___________________________________________________________home
+
 def home(request):
-    # Fetch all posts along with their comments
+    '''
+    Fetches all published posts along with their comments and renders the home page.
+    '''
     posts_with_comments = []
     posts = Post.objects.filter(is_published=True).order_by('-created_at')
     for post in posts:
@@ -20,9 +22,11 @@ def home(request):
     return render(request, "home.html", context)
 
 
-#___________________________________________________________create_post
 @login_required
 def create_post(request):
+    '''
+    Handles the form submission for creating a new post.
+    '''
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -39,8 +43,10 @@ def create_post(request):
     return render(request, 'create_post.html', context)
 
 
-#___________________________________________________________post_detail
 def post_detail(request, post_id):
+    '''
+    Displaying the details of a specific post along with its comments.
+    '''
     post = get_object_or_404(Post, id=post_id)
     comments = post.comments.all()
     
@@ -64,6 +70,9 @@ def post_detail(request, post_id):
 
 @login_required
 def delete_post_confirmation(request, post_id):
+    '''
+    Displaying the delete post confirmation page.
+    '''
     post = get_object_or_404(Post, id=post_id)
     context = {'post': post}
     return render(request, 'delete_post_confirmation.html', context)
@@ -71,6 +80,9 @@ def delete_post_confirmation(request, post_id):
 
 @login_required
 def delete_post(request, post_id):
+    '''
+    Function for deleting a post.
+    '''
     post = get_object_or_404(Post, id=post_id)
     if request.user == post.user or request.user.is_admin:
         post.delete()
@@ -81,6 +93,9 @@ def delete_post(request, post_id):
 
 @login_required
 def delete_comment(request, comment_id):
+    '''
+    Function for deleting a comment.
+    '''
     comment = get_object_or_404(Comment, id=comment_id)
     if request.user == comment.user or request.user.is_admin:
         comment.delete()

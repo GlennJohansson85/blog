@@ -3,11 +3,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
-
-#___________________________________________________________ProfileManager
 class ProfileManager(BaseUserManager):
-    
+      '''
+      Custom manager for the Profile model.
+      '''
       def create_user(self, username, first_name, last_name, email, password=None, **extra_fields):
+            '''
+            Creates and saves a regular user with the given details.
+            '''
             if not email:
                   raise ValueError('Email is required')
             
@@ -24,6 +27,9 @@ class ProfileManager(BaseUserManager):
             return user
 
       def create_superuser(self, username, first_name, last_name, email, password=None, **extra_fields):
+            '''
+            Creates and saves a superuser with the given details.
+            '''
             extra_fields.setdefault('is_admin', True)
             extra_fields.setdefault('is_staff', True)
             extra_fields.setdefault('is_active', True)
@@ -36,9 +42,11 @@ class ProfileManager(BaseUserManager):
             return self.create_user(username, first_name, last_name, email, password, **extra_fields)
 
 
-#___________________________________________________________Profile
+
 class Profile(AbstractBaseUser):
-      #user = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='posts')
+      '''
+      Custom user model for the application.
+      '''
       username = models.CharField(max_length=50, unique=True)
       first_name = models.CharField(max_length=50)
       last_name = models.CharField(max_length=50)

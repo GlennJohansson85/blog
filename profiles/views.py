@@ -1,4 +1,3 @@
-#profiles/views.py
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.core.mail import EmailMessage
@@ -14,9 +13,10 @@ from .models import Profile
 import requests
 
 
-
-#___________________________________________________________register
 def register(request):
+    '''
+    Register a new user
+    '''
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -62,9 +62,10 @@ def register(request):
     return render(request, 'profiles/register.html', context)
 
 
-#___________________________________________________________login
 def login(request):
-
+    '''
+    Logging in a user
+    '''
     if request.method == "POST":
         email       = request.POST['email']
         password    = request.POST['password']
@@ -88,17 +89,20 @@ def login(request):
     return render(request, 'profiles/login.html')
 
 
-#___________________________________________________________logout
 @login_required(login_url = 'login')
 def logout(request):
+    '''
+    Logout a user.
+    '''
     auth.logout(request)
     messages.success(request, 'Loggout Successful!')
     return redirect('login')
 
 
-#___________________________________________________________activate
 def activate(request, uidb64, token):
-
+    '''
+    Activating a user account.
+    '''
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
         user = Profile._default_manager.get(pk=uid)
@@ -115,9 +119,11 @@ def activate(request, uidb64, token):
     return redirect('register')
 
 
-#___________________________________________________________dashboard
 @login_required(login_url='login')
 def dashboard(request):
+    '''
+    Displaying the user Dashboard
+    '''
     profile = request.user # Directly use the logged-in user
     context = {
         'profile': profile,
@@ -125,9 +131,10 @@ def dashboard(request):
     return render(request, 'profiles/dashboard.html', context)
 
 
-#___________________________________________________________reset_password
 def reset_password(request):
-
+    '''
+    For reseting the user password
+    '''
     if request.method == 'POST':
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
@@ -146,9 +153,11 @@ def reset_password(request):
         return render(request, 'profiles/reset_password.html')
 
 
-#___________________________________________________________edit_profile
 @login_required(login_url='login')
 def edit_profile(request):
+    '''
+    To edit the user details
+    '''
     if request.method == 'POST':
         user_form = UserForm(request.POST, request.FILES, instance=request.user)
         if user_form.is_valid():
@@ -159,10 +168,11 @@ def edit_profile(request):
     return render(request, 'profiles/edit_profile.html', {'user_form': user_form})
 
 
-#___________________________________________________________change_password
 @login_required(login_url='login')
 def change_password(request):
-
+    '''
+    For changing user password
+    '''
     if request.method == 'POST':
         current_password = request.POST['current_password']
         new_password = request.POST['new_password']

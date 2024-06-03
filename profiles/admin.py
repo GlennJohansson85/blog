@@ -1,8 +1,8 @@
-#profiles/admin.py
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Profile
 from django.utils.html import format_html
+
 
 class ProfileAdmin(UserAdmin):
     model = Profile
@@ -29,7 +29,4 @@ class ProfileAdmin(UserAdmin):
 
     thumbnail.short_description = 'Profile Picture'
 
-
 admin.site.register(Profile, ProfileAdmin)
-
-

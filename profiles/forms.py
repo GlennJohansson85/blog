@@ -2,7 +2,7 @@
 from django import forms
 from .models import Profile
 
-#___________________________________________________________  RegistrationForm
+
 class RegistrationForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={
@@ -41,7 +41,6 @@ class RegistrationForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'form-control'
 
 
-#___________________________________________________________  UserForm
 class UserForm(forms.ModelForm):
     class Meta:
         model = Profile
