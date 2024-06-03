@@ -8,10 +8,50 @@ This is a Python/Django based project.
 
 1. **User Registration:**
    Users register adding their username, first/last - name, email, phonenumber and password. Password needs to be typed in two times.
-   ![alt text](image.png)
+   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/af382a25-2f43-4368-84f8-72776b4932e6)
 
+1.1 Same email used register another account - Error: 
+   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b20c0e60-6de9-4a75-8bc0-110e742d3b9e)
 
-   If Passwords dont match, or the user choosing a used username alert messages will show.
+1.2 Missmatch between passwords - Error: 
+   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f6acd8fb-ee14-41ff-8389-d798221294fb)
+
+1.3 Successful login:
+   ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/18f85c67-ed59-4cce-a3a0-cbd6dbe68c06)
+   
+1.3.1 Activation email:
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/35bc7c4c-4334-4951-8da8-3121e2070bd4)
+
+1.3.2 Clicks on the link and get redirected to the login page:
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/337e88e7-3540-4c11-b227-32ef02b1d9cb)
+
+ When User has logged in she gets directed to her dashboard:
+
+1.4 Dashboard
+![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/75a459f8-3ee9-4b73-8acc-54414735c246)
+
+Here she will be greated with a wellcome message in the navbar (username) as well as seeing that the login was a success. The dashboard contains three tabs: 
+
+* 1.4.1 Edit Profile:
+  ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f2851fa6-1221-4ad4-ba2c-c2d7a8a4e99d)
+  Here she can change her details (except password) and add her profile picture. 
+
+* 1.4.2 Change Password:
+  ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/37d2bfe1-0c4c-41a5-978e-6f780f3a09cd)
+   Here she needs to add her current password and the new password twice. Just like the register process the passwords needs to match.
+
+   1.4.2.1 Current password incorrect - error message:
+     ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/d28ddbff-9a61-4f19-8e45-a2334bb4dbea)
+
+* 1.4.3 Dashboard:
+  ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/a8788a39-550b-4f29-be90-63af1629462d)
+   When profile picture added she will (in this case my picture) see her profile picture and beneath here email address and phone number.
+  
+
+     
+  
+   
+   
    ![alt text](image-1.png)
    If The registration is a success a success message will show and a verification email will be sent to the provided email.
    ![alt text](image-2.png)
