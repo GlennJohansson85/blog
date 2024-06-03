@@ -4,7 +4,7 @@
 
 This is a Python/Django based project. 
 
-### Features
+### Featurese
 
 1. **User Registration:**
    Users register adding their username, first/last - name, email, phonenumber and password. Password needs to be typed in two times.
