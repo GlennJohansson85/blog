@@ -9,7 +9,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, UserForm
-from .models import Profile
+from .models import Profile, Friendship
 
 import requests
 
@@ -183,3 +183,18 @@ def change_password(request):
             return redirect('change_password')
 
     return render(request, 'profiles/change_password.html')
+
+
+#___________________________________________________________get_friends
+@login_required
+def get_friends(request):
+    user = request.user
+    friends = Friendship.objects.filter(user=user).select_related('friend')
+    return render(request, 'navbar.html', {'friends': friends})
+
+#___________________________________________________________send_friend_request
+@login_required
+def send_friend_request(request, friend_id):
+    friend = Profile.objects.get(id=friend_id)
+    Friendship.objects.create(user=request.user, friend=friend)
+    return redirect('get_friends')
