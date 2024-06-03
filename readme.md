@@ -90,9 +90,11 @@ This button will redirect the user to the post template:
 
 Here all users will see the following:
 
-##### Eachothers posts = Title, content, author and the date when the post was created. 
-##### Users comments = Username followed by their comment. 
-##### And the "Add Comment button"
+All posts = Title, content, author and the date when the post was created. 
+Comments = Username followed by their comment. 
+Add a Comment button 
+
+
 
 ##### 5.1 Comments:
 
