@@ -8,8 +8,8 @@ import cloudinary
 import cloudinary.uploader
 
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
+# TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 SECRET_KEY = os.environ.get('SECRET_KEY','')
 
@@ -34,11 +34,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
-    'profiles',
+    'auth',
     'cloudinary_storage',
     'cloudinary',
     'gunicorn',
+    'blog',
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -78,17 +79,17 @@ WSGI_APPLICATION = 'p4-blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+#if 'DATABASE_URL' in os.environ:
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+#else:
+#    DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        }
+#    }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -110,18 +111,18 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
+USE_L10N = True
 USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+# STATIC_ROOT = [os.path.join(BASE_DIR, 'staticfiles')]
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Email Verification
@@ -140,3 +141,5 @@ DB_USER = 'pgdemrvo'
 DB_NAME = 'p4-blog'
 DB_PASSWORD = os.environ.get('DB_PASSWORD','')
 DATABASE_URL = os.environ.get('DB_URL','')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
