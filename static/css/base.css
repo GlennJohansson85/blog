@@ -10,7 +10,7 @@
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family:    'SalisburyBold-PVZXr'!important;
+    font-family:    'SalisburyBold-PVZXr', 'sans-serif';
 }
 
 @font-face {
@@ -19,7 +19,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 body {
-    font-family:    'RaftworkDemoRegular-9MoB5';
+    font-family:    'RaftworkDemoRegular-9MoB5', 'sans-serif';
 }
 
 /*                                LAYOUT / BACKGROUND
@@ -200,15 +200,15 @@ h5 { /*             Buttons */
     border-radius:      10px;
     margin-right:       10px;
     color:            #FF70C0;
-    border-color:     #FF70C0;
+    border-color: #FF70C0;
     background-color: #c1d6de;
   
 }
   
 .comment-btn:hover {
-    color:            #FFF;
+    color: #FFF;
     background-color: #F2AECE;
-    border-color:     #FF70C0;
+    border-color: #FF70C0;
 }
 
 .no-posts-message {
@@ -232,22 +232,19 @@ h5 { /*             Buttons */
     font-weight: bold;
 }
 
-
-
 .create-post-submit{
     padding-bottom: -20px;
-    border-radius:      10px;
-    margin-right:       10px;
-    color:            #FF70C0;
-    border-color:     #FF70C0;
-    background-color: #c1d6de;
-  
+    border-radius: 10px;
+    margin-right: 10px;
+    color: #FF70C0;
+    border-color: #FF70C0;
+    background-color: #c1d6de; 
 }
   
 .create-post-submit:hover {
-    color:            #FFF;
+    color: #FFF;
     background-color: #F2AECE;
-    border-color:     #FF70C0;
+    border-color: #FF70C0;
 }
 
 /*                                                    POST_DETAIL.HTML
@@ -255,7 +252,6 @@ h5 { /*             Buttons */
 .post_detail-img {
     margin: auto;
 }
-
 
 /* Custom text area for post comment */
 form p textarea {
@@ -265,7 +261,3 @@ form p textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
-
-/*                                                      DELETE BUTTONS
-**********************************************************************/
