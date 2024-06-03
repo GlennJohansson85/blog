@@ -23,8 +23,11 @@ Users register adding their username, first/last - name, email, phone number and
 
 When registering to the site a message will show:
 
-1.3.1 Activation email:
+###### 1.3.1 Activation email:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/35bc7c4c-4334-4951-8da8-3121e2070bd4)
+
+The user needs to verify her account by pressing the verification link sent to her.
+
 
 1.3.2 Clicks on the link and get redirected to the login page:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/337e88e7-3540-4c11-b227-32ef02b1d9cb)
