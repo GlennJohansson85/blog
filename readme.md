@@ -18,11 +18,10 @@ Users register adding their username, first/last - name, email, phone number and
 ##### 1.2 Missmatch between passwords:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/f6acd8fb-ee14-41ff-8389-d798221294fb)
 
-
-1.3 Successful login:
-<br>
+##### 1.3 Successful login:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/18f85c67-ed59-4cce-a3a0-cbd6dbe68c06)
-<br>
+
+When registering to the site a message will show:
 
 1.3.1 Activation email:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/35bc7c4c-4334-4951-8da8-3121e2070bd4)
