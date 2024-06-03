@@ -1,60 +1,64 @@
 #profiles/views.py
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, UserForm
-from .models import Profile
 from django.contrib import messages, auth
-from django.contrib.auth.decorators import login_required
-from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
+from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.tokens import default_token_generator
-from django.core.mail import EmailMessage
-
+from django.contrib.auth.decorators import login_required
+from .forms import RegistrationForm, UserForm
+from .models import Profile
 
 import requests
 
+
 #___________________________________________________________register
 def register(request):
-
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            username       = email.split("@")[0]
-            password        = form.cleaned_data['password']
-            first_name      = form.cleaned_data['first_name']
-            last_name       = form.cleaned_data['last_name']
-            phone_number    = form.cleaned_data['phone_number']
-            email           = form.cleaned_data['email']
-            user            = Profile.objects.create_user(
-                username   = username,
-                password    = password,
-                email       = email,
-                first_name  = first_name,
-                last_name   = last_name,
-                )
+            email = form.cleaned_data['email'] # First retrieve email
+            username = email.split("@")[0] # Then use email to get username
+            password = form.cleaned_data['password']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            phone_number = form.cleaned_data['phone_number']
+            
+            # Create user
+            user = Profile.objects.create_user(
+                email = email,
+                username = username,
+                password = password,
+                first_name = first_name,
+                last_name = last_name,
+            )
             user.phone_number = phone_number
             user.save()
-            current_site    = get_current_site(request)
-            mail_subject    = 'Please activate your account'
-            message         = render_to_string('profiles/verification_email.html', {
-                'user'  : user,
+
+            # Send activation mail
+            current_site = get_current_site(request)
+            mail_subject = 'Please activate your account'
+            message = render_to_string('profiles/verification_email.html', {
+                'user': user,
                 'domain': current_site,
-                'uid'   : urlsafe_base64_encode(force_bytes(user.pk)),
-                'token' : default_token_generator.make_token(user),
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': default_token_generator.make_token(user),
             })
-            to_email    = email
-            send_email  = EmailMessage(mail_subject, message, to=[to_email])
+            to_email = email
+            send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
+
             messages.success(request, 'Activation link sent to your email!')
             return redirect('/profiles/login/?command=verification&email='+email)
     else:
         form = RegistrationForm()
+    
     context = {
         'form': form,
     }
     return render(request, 'profiles/register.html', context)
-
 
 
 #___________________________________________________________login
@@ -95,10 +99,10 @@ def logout(request):
 def activate(request, uidb64, token):
 
     try:
-        uid     = urlsafe_base64_decode(uidb64).decode()
-        user    = Profile._default_manager.get(pk=uid)
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = Profile._default_manager.get(pk=uid)
     except(TypeError, ValueError, OverflowError, Profile.DoesNotExist):
-        user    = None
+        user = None
 
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
@@ -113,7 +117,7 @@ def activate(request, uidb64, token):
 #___________________________________________________________dashboard
 @login_required(login_url='login')
 def dashboard(request):
-    profile = request.user  # Directly use the logged-in user
+    profile = request.user # Directly use the logged-in user
     context = {
         'profile': profile,
     }
@@ -124,12 +128,12 @@ def dashboard(request):
 def reset_password(request):
 
     if request.method == 'POST':
-        password            = request.POST['password']
-        confirm_password    = request.POST['confirm_password']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
 
         if password == confirm_password:
-            uid     = request.session.get('uid')
-            user    = Profile.objects.get(pk=uid)
+            uid = request.session.get('uid')
+            user = Profile.objects.get(pk=uid)
             user.set_password(password)
             user.save()
             messages.success(request, 'Password reset successful')
@@ -139,7 +143,6 @@ def reset_password(request):
             return redirect('reset_password')
     else:
         return render(request, 'profiles/reset_password.html')
-
 
 
 #___________________________________________________________edit_profile
@@ -154,13 +157,14 @@ def edit_profile(request):
         user_form = UserForm(instance=request.user)
     return render(request, 'profiles/edit_profile.html', {'user_form': user_form})
 
+
 #___________________________________________________________change_password
 @login_required(login_url='login')
 def change_password(request):
 
     if request.method == 'POST':
-        current_password     = request.POST['current_password']
-        new_password         = request.POST['new_password']
+        current_password = request.POST['current_password']
+        new_password = request.POST['new_password']
         confirm_new_password = request.POST['confirm_new_password']
 
         user = Profile.objects.get(username__exact=request.user.username)
@@ -179,5 +183,3 @@ def change_password(request):
             return redirect('change_password')
 
     return render(request, 'profiles/change_password.html')
-
-
