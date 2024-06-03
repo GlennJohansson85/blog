@@ -12,11 +12,9 @@ This is a Python/Django based project.
 
 Users register adding their username, first/last - name, email, phone number and password. Password needs to be typed in twice.
 
-
-1.1 Same email used register another account - Error:
-<br>
+##### 1.1 Using a taken email:
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/b20c0e60-6de9-4a75-8bc0-110e742d3b9e)
-<br>
+
 
 1.2 Missmatch between passwords - Error: 
 <br>
