@@ -6,7 +6,7 @@ This is a Python/Django based project.
 
 ### Features:
 
-#### 1.User Registration:####
+#### 1. User Registration:
 
 ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/af382a25-2f43-4368-84f8-72776b4932e6)
 
