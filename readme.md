@@ -7,7 +7,9 @@ This is a Python/Django based project.
 ### Features:
 
 1. **User Registration:**
+   <br>
    ![image](https://github.com/GlennJohansson85/p4-blog/assets/139962883/af382a25-2f43-4368-84f8-72776b4932e6)
+   <br>
    Users register adding their username, first/last - name, email, phonenumber and password. Password needs to be typed in two times.
 
 1.1 Same email used register another account - Error: 
