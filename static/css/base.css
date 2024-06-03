@@ -1,25 +1,10 @@
-/*             CATEGORY          
-***********************/
-
-/*          SUBCATEGORY
-=======================*/
-
-/*      SUB SUBCATEGORY 
------------------------*/
-
-/*          Preferences
-¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
-
-
-
-
 /*                                                       ALL TEMPLATES
 **********************************************************************/
 /*                                                   SETTINGS
 =============================================================*/
 /*                                              FONTS
 ----------------------------------------------------*/
-@font-face { /*     Headers - Salisbury Bold */
+@font-face {
     font-family:    'SalisburyBold-PVZXr';
     src:            url('/static/font/SalisburyBold-PVZXr.ttf') format('TrueType');
 }
@@ -28,8 +13,7 @@ h1,h2,h3,h4,h5,h6 {
     font-family:    'SalisburyBold-PVZXr'!important;
 }
 
-
-@font-face { /*     Body - RaftworkDemo Regular */
+@font-face {
     font-family:    'RaftworkDemoRegular-9MoB5';
     src:            url('/static/font/RaftworkDemoRegular-9MoB5.otf') format('OpenType');
 }
@@ -37,7 +21,6 @@ h1,h2,h3,h4,h5,h6 {
 body {
     font-family:    'RaftworkDemoRegular-9MoB5';
 }
-
 
 /*                                LAYOUT / BACKGROUND
 ----------------------------------------------------*/
@@ -70,7 +53,7 @@ html {
     margin:                     0 auto;
     padding:                    20px;
     border-radius:              20px;
-    backgroud-color:          #FFF;    
+    background-color:          #FFF;    
 }
 
 /*                                            HEADER

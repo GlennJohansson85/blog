@@ -2,28 +2,46 @@
 
 ### Overview
 
-This is a Python based Blog Project. 
+This is a Python/Django based project. 
 
 ### Features
 
 1. **User Registration:**
-     Users register adding their username, first/last - name, email and password. Password needs to be typed in two times for security reasons.
-     If Passwords dont match, or the user choosing a used username alert messages will show.
-   If The registration is a success a success message will show and a verification email will be sent to the provided email. Here the User needs to click on the verfication link to verify their account. When pressing the link it will also redirect them to the login page where they need to enter their username and passowrd. Exactly as the registration process if the username or password is invalid an error message will show and a success message if the details are correct. When logged in the user will be greated with a wellcome message followed by there username.
-   Authentication is provided by Allauth (auth)
+   Users register adding their username, first/last - name, email, phonenumber and password. Password needs to be typed in two times.
+   ![alt text](image.png)
+
+
+   If Passwords dont match, or the user choosing a used username alert messages will show.
+   ![alt text](image-1.png)
+   If The registration is a success a success message will show and a verification email will be sent to the provided email.
+   ![alt text](image-2.png)
+   
+   Here the User needs to click on the verfication link to verify their account.
+   ![alt text](image-3.png)
+   
+   When pressing the link it will also redirect them to the login page where they need to enter their username and password.
+   ![alt text](image-4.png)
+   
+   Exactly as the registration process if the username or password is invalid an error message will show and a success message if the details are correct. When logged in the user will be greated with a wellcome message followed by their username in the navbar.
+   ![alt text](image-5.png)
+   
+   When logged in the first page the user will see is their own dashboard. 
+   
+
+2. **Dashboard**
+    ![alt text](image-6.png)
+   Here they will see whom they are logged in as (username). They can see their , not uploaded profile picture aswell as their email and phonenumber beneath. To add a profile picture the user needs to click on the "Edit Profile" button in the leftside menu: 
+
+   * "3.2 Dashboard"
+   * "3.1 Edit Profile"
+   * "3.3 Reset Password"
 
 2. **Navbar**
    - The navbar is located on all pages. Within the profile pic button there is a dropdown menu where the user can login/logout or access -      their dashboard. Here is also a messages link where the user will see pvp messages in a later stage.
    - The Brand is also a button which takes the user to the Postwall whenever clicked.
    - There is also a search function and a friends dropdown list which will be functioning in a later stage.
      
-3. **Dashboard**
-    Each user can access their dashboard through the navbar using the Profile picture button in the top right corner.
-    Note that it first appear broken due to there is no image.
-    Within the dashboard users have access to the following:
-   * "3.2 Dashboard"
-   * "3.1 Edit Profile"
-   * "3.3 Reset Password"
+3. 
 
      3.1 **Edit Profle**
      Here the user can change all their details and also add their profile picture, which will show in the navbar + in the profile class in      the django admin interface. Phonenumber is also optional to provide.

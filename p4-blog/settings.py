@@ -18,6 +18,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'p4-blog-f04a1ff6a58f.herokuapp.com',
     'localhost',
+    '127.0.0.1',
     '8000-glennjohansson85-p4blog-a060fk9lwoz.ws-eu114.gitpod.io'
 ]
 

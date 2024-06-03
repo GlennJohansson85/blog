@@ -11,7 +11,7 @@ class RegistrationForm(forms.ModelForm):
     }))
     
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder': '<-- The one you created'
+        'placeholder': 'Same as you just created'
     }))
 
     class Meta:
@@ -32,6 +32,7 @@ class RegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
 
         super(RegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['placeholder'] = 'Hoffmeister'
         self.fields['first_name'].widget.attrs['placeholder'] = 'David'
         self.fields['last_name'].widget.attrs['placeholder'] = 'Hasselhoff'
         self.fields['email'].widget.attrs['placeholder'] = 'David.Hasselhoff@hotmail.com'
